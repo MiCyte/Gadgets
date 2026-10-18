@@ -1,0 +1,684 @@
+{
+  "schema": "micyte.packages.manifest.v1",
+  "publisher": "micyte.com",
+  "build": "gadgets-462d07597978aaaf",
+  "micyte_version": "0.6.0",
+  "packages": [
+    {
+      "package_id": "brevat",
+      "version": "1.3.0",
+      "label": "Brevat",
+      "summary": "Products, supply, sales and the standing offer, for an instance that sells goods. The commerce seam is DECLARED here and bound — and granted — by the operator on Ports, never by installing.",
+      "source": "local",
+      "tools": [
+        "brevat",
+        "product_catalog",
+        "stock_log",
+        "supply_ledger",
+        "sales_ledger",
+        "offer_ledger"
+      ],
+      "requires": {
+        "sources": [],
+        "documents": [
+          {
+            "name": "product_profiles",
+            "archetype": "offering_record",
+            "why": "what this instance sells, structurally — the products its offers price",
+            "archetype_hash": "979512b16c751e40d8e24a1c4f228972f1b16c3760e36da6aa9fdb67d5e9e430"
+          },
+          {
+            "name": "stock_log",
+            "archetype": "stock_entry",
+            "why": "what came in and what went out — the log the on-hand figure is summed from",
+            "archetype_hash": "6b44e341c362d6798b228f825d1312dd8598b98355ac255673f2ca47b44b8edb"
+          },
+          {
+            "name": "invoices",
+            "archetype": "invoice",
+            "why": "what this instance bought in — invoice rows, dated and priced",
+            "archetype_hash": "adf356bbf5ba69f5ce9131ac2e28a84e785ac9644904c4e1eb95fef069144288"
+          },
+          {
+            "name": "sales",
+            "archetype": "invoice",
+            "why": "what this instance sold — invoice-shaped rows; the document is the direction",
+            "archetype_hash": "adf356bbf5ba69f5ce9131ac2e28a84e785ac9644904c4e1eb95fef069144288"
+          },
+          {
+            "name": "offering",
+            "archetype": "offer",
+            "why": "the standing offers a storefront or the commerce port reads",
+            "archetype_hash": "760c970ee82252f5c8e45e24460155a0c76c82017cf319a18aea90ea1e871fe0"
+          }
+        ],
+        "documents_any": [],
+        "fields": [],
+        "archetypes": []
+      },
+      "writes": [
+        {
+          "document_kind": "product_profile",
+          "action": "add_product",
+          "sandbox_id": ""
+        },
+        {
+          "document_kind": "stock_log",
+          "action": "record_stock",
+          "sandbox_id": ""
+        },
+        {
+          "document_kind": "invoice",
+          "action": "add_supply",
+          "sandbox_id": ""
+        },
+        {
+          "document_kind": "sale",
+          "action": "add_sale",
+          "sandbox_id": ""
+        },
+        {
+          "document_kind": "offering",
+          "action": "set_offer",
+          "sandbox_id": ""
+        }
+      ],
+      "icon": "brevat",
+      "hub_tool": "brevat",
+      "app_sandbox": {
+        "namespace": "farm",
+        "why": "A goods-selling instance's anchor comes from the farm template (`bootstrap_farm_sandbox`), whose numbering carries the fiat/price babelette the ledger writes against — installing records that claim instead of a hand edit and a deploy.",
+        "documents": [
+          {
+            "name": "plantings",
+            "archetype": "planting",
+            "why": "supply batches committed to plots — the planting book add_planting appends to",
+            "archetype_hash": ""
+          }
+        ]
+      },
+      "port_declarations": [
+        {
+          "port_id": "commerce_offering",
+          "why": "what this instance offers, published and quotable; payment capture rides PayPal when — and only when — an operator binds and grants it",
+          "writes": [],
+          "calls": [
+            {
+              "service": "paypal",
+              "operation": "order.create"
+            },
+            {
+              "service": "paypal",
+              "operation": "order.capture"
+            }
+          ],
+          "operations": []
+        }
+      ],
+      "scoped_features": [],
+      "port_fills": [],
+      "publishable": true,
+      "digest": "sha256:5c3be99bdb9fb8b26f0e15632c7dbdec636ef2786f8b1ce41460e6a56fa7af26"
+    },
+    {
+      "package_id": "claude",
+      "version": "1.0.0",
+      "label": "Claude",
+      "summary": "Send text to Anthropic's models and read the reply. The key is yours and stays on this instance; what the call discloses is the text itself.",
+      "source": "local",
+      "tools": [],
+      "requires": {
+        "sources": [],
+        "documents": [],
+        "documents_any": [],
+        "fields": [],
+        "archetypes": []
+      },
+      "writes": [],
+      "icon": "claude",
+      "hub_tool": "",
+      "app_sandbox": null,
+      "port_declarations": [],
+      "scoped_features": [],
+      "port_fills": [
+        {
+          "port_id": "ai_provider",
+          "adapter_id": "fnd_app.packages.peripherals.ai.anthropic_messages.AnthropicMessagesAdapter",
+          "service": "anthropic",
+          "why": "A draft goes to the model and the reply comes back unsaved. Writing it down stays a person's own act.",
+          "functions": [
+            {
+              "operation": "messages.create",
+              "why": "Send the turns and pay for the answer. What it discloses is whatever text was in them."
+            }
+          ]
+        }
+      ],
+      "publishable": true,
+      "digest": "sha256:ae5b2a30cc01a822305592fcc62fb973c24d46a52b3e2c3a35f44011e8db0e84"
+    },
+    {
+      "package_id": "enchir",
+      "version": "1.2.0",
+      "label": "Enchir",
+      "summary": "The projects, commissions and pieces of work an instance keeps, grouped by what they are — and, when a website is connected, the profiles that site offers them up through: which photograph stands for each, the order of the rest, and the short and long description.",
+      "source": "local",
+      "tools": [
+        "enchir"
+      ],
+      "requires": {
+        "sources": [],
+        "documents": [],
+        "documents_any": [],
+        "fields": [],
+        "archetypes": []
+      },
+      "writes": [],
+      "icon": "enchir",
+      "hub_tool": "enchir",
+      "app_sandbox": null,
+      "port_declarations": [
+        {
+          "port_id": "site_hosting",
+          "why": "the client's own site: which profiles it allocates, the one edit that arranges and describes a project on it, and the upload that adds a photograph to one. Reading is `page.list` — the same disclosure PIM's Design tab makes — the edit is fenced to the profile's own gallery, and the upload to the site's own pool",
+          "writes": [],
+          "calls": [],
+          "operations": [
+            "page.list",
+            "profile.edit",
+            "asset.upload",
+            "project.export"
+          ]
+        }
+      ],
+      "scoped_features": [],
+      "port_fills": [],
+      "publishable": true,
+      "digest": "sha256:179181be9dd35b64cd77b874ac3e92f9fc1902c2085e97555018bb3fdd3f976f"
+    },
+    {
+      "package_id": "fnd_service",
+      "version": "1.7.0",
+      "label": "FND Service",
+      "summary": "Connect this instance to what FND already runs for it: the mail — read what arrived, administer the addresses on its domains, answer from one of them, or hand a message to a person — and the served site, where pages can be read and edited, writing published, sent to the people who subscribed, or taken down, assets uploaded, and the month's traffic counted. FND holds the accounts; this instance holds no credential.",
+      "source": "local",
+      "tools": [],
+      "requires": {
+        "sources": [],
+        "documents": [],
+        "documents_any": [],
+        "fields": [],
+        "archetypes": []
+      },
+      "writes": [],
+      "icon": "fnd_service",
+      "hub_tool": "",
+      "app_sandbox": null,
+      "port_declarations": [],
+      "scoped_features": [],
+      "port_fills": [
+        {
+          "port_id": "email_provider",
+          "adapter_id": "fnd_app.packages.grantee_services.fnd_service.email.FndEmailAdapter",
+          "service": "fnd_service",
+          "why": "FND already receives and sends this domain's mail, and holds the addresses it is received at. Selecting this lets the instance work with both directly instead of a person copying it across.",
+          "functions": [
+            {
+              "operation": "mailbox.list",
+              "why": "See what has arrived. Discloses who wrote, and when."
+            },
+            {
+              "operation": "message.fetch",
+              "why": "Open one message. Discloses what they said."
+            },
+            {
+              "operation": "alias.list",
+              "why": "See which addresses exist on this client's domains, where each hands its mail on to, and how far each has got through send-as confirmation. Discloses the shape of somebody's mail and none of its contents. Withhold it and PIM's Email tab has nothing to draw."
+            },
+            {
+              "operation": "alias.create",
+              "why": "Bring a new address into existence on a domain this client owns. Withhold it and minting addresses stays the operator's job, which is where it was before PIM."
+            },
+            {
+              "operation": "alias.remove",
+              "why": "Take an address away. Separate from creating one because an address that has been given out is on somebody's letterhead, and removing it loses the mail already addressed to it."
+            },
+            {
+              "operation": "forwarding.set",
+              "why": "Change where an existing address hands its mail on to. The change a client asks for most often, and the one that silently redirects correspondence when it is wrong — so it is refusable on its own rather than folded into `alias.create`."
+            },
+            {
+              "operation": "message.send",
+              "why": "Send from this address, to whoever the caller names. The only function a stranger ever sees."
+            },
+            {
+              "operation": "message.forward",
+              "why": "Hand a message to an address configured in advance. Separate from sending because handing work to the owner and writing to anyone are different permissions."
+            },
+            {
+              "operation": "identity.verify_request",
+              "why": "Send the setup handoff to the personal address behind a mailbox, so its owner can confirm they may send AS the domained one. It SENDS MAIL to a person, which is why it sits here rather than beside `alias.create`. Withhold it and addresses can be made but never sent from."
+            },
+            {
+              "operation": "identity.remind",
+              "why": "Nudge an owner who has not finished confirming. Also sends mail, and separately refusable: an operator may want the one-time handoff without a reminder cadence."
+            }
+          ]
+        },
+        {
+          "port_id": "site_hosting",
+          "adapter_id": "fnd_app.packages.grantee_services.fnd_service.site.FndSiteAdapter",
+          "service": "fnd_service",
+          "why": "FND already serves this domain's site and counts what visits it. Selecting this lets the instance read, edit and publish to it instead of an operator typing it into a dashboard on their behalf.",
+          "functions": [
+            {
+              "operation": "page.list",
+              "why": "See which pages the site has and which pieces it carries. Discloses the shape of somebody's site and nothing else."
+            },
+            {
+              "operation": "analytics.read",
+              "why": "A month of the site's traffic, counted. The only function here that touches nobody's words and the only one an unattended routine performs, so it is what an operator grants a nightly refresh while every write below stays withheld."
+            },
+            {
+              "operation": "content.replace",
+              "why": "Apply one {old, new} pair to the site's source: change the words a stranger reads on a page that already exists. Withhold it and a client can look at their own site and not fix a typo in it."
+            },
+            {
+              "operation": "article.retire",
+              "why": "Take one down. Separate from publishing because a mistaken publish is embarrassing and a mistaken retire loses work, and an operator may well permit one and not the other."
+            },
+            {
+              "operation": "article.publish",
+              "why": "Put a piece of writing on the public internet under this client's name, at a new address, with a tile pointing at it. The function a stranger reads."
+            },
+            {
+              "operation": "article.send",
+              "why": "Put the same piece of writing in the inboxes of the people who subscribed to this site. THE ONE FUNCTION HERE THAT CANNOT BE UNDONE: a publish can be taken back down in a minute and a send cannot be taken back at all. Withhold it and the client writes for the web exactly as before; grant it and they can mail everyone on their list without asking anybody. The surface states the count before it sends."
+            },
+            {
+              "operation": "asset.swap",
+              "why": "Point a picture on a page at a different file the site already has. Its own permission because its fence is its own: the target must be in the site's gallery, where a content replacement could point an <img> anywhere. The store has refused an off-gallery target since the legacy design tab, and nothing could reach that check until this."
+            },
+            {
+              "operation": "asset.upload",
+              "why": "Put new bytes at a public URL. Deliberately not the same permission as replacing a word: an edit changes what the site SAYS, an upload changes what it SERVES, and the second is how a site comes to host a file nobody reviewed."
+            },
+            {
+              "operation": "profile.edit",
+              "why": "Rewrite a profile the pages are generated from — which photograph stands for a project, the order and hiding of the rest, its short and long description — and rebuild them. Its own permission because one save reaches several pages at once and can take a photograph off the site without deleting it; every ref is fenced to the profile's own gallery."
+            },
+            {
+              "operation": "contact.set_subscription",
+              "why": "Put one reader on this site's newsletter list, or take one off, by hand — through the newsletter runtime's one subscription writer, so a toggle from PIM and a click on an unsubscribe link leave the same shape. Refuses an address the roster does not hold: a toggle is not a signup."
+            },
+            {
+              "operation": "project.export",
+              "why": "Write a project document's view beside the site's assets, land any picture the site's pool lacks, and derive the profile the pages are generated from — the instance's books become the source and the leaflet a copy. Its own permission because it lands files and rewrites a profile in one act."
+            }
+          ]
+        }
+      ],
+      "publishable": true,
+      "digest": "sha256:07d21fa7aca379e783af8d82465ad35b7abece8ff60caad5f337fd5d57a69424"
+    },
+    {
+      "package_id": "oveure",
+      "version": "1.3.0",
+      "label": "Oveure",
+      "summary": "Notes, the domain sheet, and the instance's automation and AI seams. The AI providers are DECLARED here and bound — and granted — by the operator on Ports, never by installing.",
+      "source": "local",
+      "tools": [
+        "oveure",
+        "lcl_editor"
+      ],
+      "requires": {
+        "sources": [],
+        "documents": [
+          {
+            "name": "lcl_domain",
+            "archetype": "local_domain_log",
+            "why": "the domain sheet — Oveure's substrate; notes and the ask relay hang beside it",
+            "archetype_hash": "4e408fb840bf74ddd25e53e877f28219a6cf13108a3595d8827080341e141ca1"
+          }
+        ],
+        "documents_any": [],
+        "fields": [],
+        "archetypes": []
+      },
+      "writes": [
+        {
+          "document_kind": "lcl_type",
+          "action": "define_type",
+          "sandbox_id": ""
+        },
+        {
+          "document_kind": "lcl_type",
+          "action": "delete_type",
+          "sandbox_id": ""
+        },
+        {
+          "document_kind": "lcl_type",
+          "action": "define_record_type",
+          "sandbox_id": ""
+        },
+        {
+          "document_kind": "lcl_instance",
+          "action": "create_instance",
+          "sandbox_id": ""
+        },
+        {
+          "document_kind": "lcl_instance",
+          "action": "save_instance",
+          "sandbox_id": ""
+        },
+        {
+          "document_kind": "lcl_instance",
+          "action": "delete_instance",
+          "sandbox_id": ""
+        },
+        {
+          "document_kind": "lcl_type",
+          "action": "insert_node",
+          "sandbox_id": ""
+        },
+        {
+          "document_kind": "lcl_type",
+          "action": "define_root_type",
+          "sandbox_id": ""
+        },
+        {
+          "document_kind": "lcl_type",
+          "action": "rename_node",
+          "sandbox_id": ""
+        },
+        {
+          "document_kind": "lcl_type",
+          "action": "move_node",
+          "sandbox_id": ""
+        },
+        {
+          "document_kind": "lcl_type",
+          "action": "delete_node",
+          "sandbox_id": ""
+        },
+        {
+          "document_kind": "lcl_document",
+          "action": "create_document",
+          "sandbox_id": ""
+        },
+        {
+          "document_kind": "lcl_document",
+          "action": "attach_document",
+          "sandbox_id": ""
+        },
+        {
+          "document_kind": "lcl_document",
+          "action": "detach_document",
+          "sandbox_id": ""
+        },
+        {
+          "document_kind": "lcl_document",
+          "action": "file_artifact",
+          "sandbox_id": ""
+        },
+        {
+          "document_kind": "lcl_document",
+          "action": "set_node_icon",
+          "sandbox_id": ""
+        },
+        {
+          "document_kind": "note",
+          "action": "save_note",
+          "sandbox_id": ""
+        },
+        {
+          "document_kind": "note",
+          "action": "save_node_note",
+          "sandbox_id": ""
+        }
+      ],
+      "icon": "oveure",
+      "hub_tool": "oveure",
+      "app_sandbox": {
+        "namespace": "",
+        "why": "A knowledge sandbox's anchor is copied verbatim from the instance's own core anchor (scripts/bootstrap_app_sandbox.py), so its namespace is INHERITED — resolved at install, never stated as a token that could disagree with the copy.",
+        "documents": []
+      },
+      "port_declarations": [
+        {
+          "port_id": "ai_provider",
+          "why": "the ask relay — a draft sent to a hosted model, the reply returned unsaved; which providers may be asked is the operator's grant, per provider",
+          "writes": [],
+          "calls": [
+            {
+              "service": "anthropic",
+              "operation": "messages.create"
+            },
+            {
+              "service": "openai",
+              "operation": "messages.create"
+            }
+          ],
+          "operations": []
+        },
+        {
+          "port_id": "email_provider",
+          "why": "the mail this instance receives and answers: read what arrived, reply from the same address, or hand it to a person. Which extension carries it, and which of the four an operator permits, are both decided on Ports",
+          "writes": [],
+          "calls": [],
+          "operations": [
+            "mailbox.list",
+            "message.fetch",
+            "message.send",
+            "message.forward"
+          ]
+        },
+        {
+          "port_id": "sms_provider",
+          "why": "the text-message rail, same posture: declared before any use exists so the seam is visible on Ports, never granted by shipping",
+          "writes": [],
+          "calls": [],
+          "operations": [
+            "message.send"
+          ]
+        }
+      ],
+      "scoped_features": [
+        {
+          "tool_id": "lcl_editor",
+          "scope": "app_sandbox",
+          "why": "The hub's Domain tab is this sandbox's own sheet, whole; the standalone editor follows the instance switcher across sandboxes."
+        }
+      ],
+      "port_fills": [],
+      "publishable": true,
+      "digest": "sha256:1b0958316b89300d2192c2167af23ed55a21ee436695fb19cdb29584f488ec81"
+    },
+    {
+      "package_id": "pim",
+      "version": "0.3.0",
+      "label": "PIM",
+      "summary": "The client's own record of their provider-service relationship, held as datum documents in an isolated sandbox and fed through the ports their own service key permits. Home says what the sandbox keeps and what the client pays; Authoring and Design are their site and the writing published to it; Analytics, Email, Resources, Storage, Payment and Domain each light when the seam that feeds them is bound and say why when it is not.",
+      "source": "local",
+      "tools": [
+        "pim_overview",
+        "pim_design"
+      ],
+      "requires": {
+        "sources": [],
+        "documents": [],
+        "documents_any": [],
+        "fields": [],
+        "archetypes": []
+      },
+      "writes": [],
+      "icon": "pim",
+      "hub_tool": "pim_overview",
+      "app_sandbox": {
+        "namespace": "",
+        "why": "a PIM sandbox's anchor is copied verbatim from the instance's own core anchor, so its namespace is INHERITED and resolved at install — never stated as a token that could disagree with the copy",
+        "documents": [
+          {
+            "name": "contacts",
+            "archetype": "natural_entity_profile",
+            "why": "people who signed up on the client's website — the client's own record of them, in their own sandbox. NOT quiar's CRM contacts: same archetype, different record",
+            "archetype_hash": ""
+          }
+        ]
+      },
+      "port_declarations": [
+        {
+          "port_id": "email_provider",
+          "why": "the FND module seam: an instance's own mail, and AWS's view of its users and their verification stages, fetched with the service key the channel minted and kept as records. DECLARED, not bound — binding is the operator's act on Ports and the grant a separate one after it, so this ships able to do nothing",
+          "writes": [],
+          "calls": [],
+          "operations": [
+            "mailbox.list",
+            "message.fetch",
+            "alias.list",
+            "forwarding.set",
+            "identity.verify_request",
+            "identity.remind"
+          ]
+        },
+        {
+          "port_id": "site_hosting",
+          "why": "the client's own site: which pages it has, and the writing they publish to it. DECLARED, not bound — the operator selects an extension on Ports and writes the grant afterwards, so this ships able to do nothing",
+          "writes": [],
+          "calls": [],
+          "operations": [
+            "page.list",
+            "article.publish",
+            "article.retire",
+            "analytics.read",
+            "content.replace",
+            "asset.upload",
+            "article.send",
+            "contact.set_subscription"
+          ]
+        }
+      ],
+      "scoped_features": [],
+      "port_fills": [],
+      "publishable": true,
+      "digest": "sha256:8e5c418885d410f9989d5701539fbee85f6515214d6a0c981ed2a0cbef7d007b"
+    },
+    {
+      "package_id": "quiar",
+      "version": "2.4.0",
+      "label": "Quiar – Freelancer",
+      "summary": "Book work, group it into projects, keep the people you book it for, and see the week. Nothing in it is trade-specific: a job's kind is a node the instance mints for itself.",
+      "source": "local",
+      "tools": [
+        "quiar",
+        "quiar_overview",
+        "job_manager",
+        "project_manager",
+        "contacts_manager",
+        "calendar"
+      ],
+      "requires": {
+        "sources": [
+          {
+            "sandbox": "registrar",
+            "document": "legal_entity",
+            "why": "the address space the customer and site pickers resolve names in"
+          }
+        ],
+        "documents": [
+          {
+            "name": "job_log",
+            "archetype": "job_event",
+            "why": "the work this instance books",
+            "archetype_hash": "139bac18e16d06c29421d887fa257f3805c6f79c02f4d661f7636e61444d28e7"
+          },
+          {
+            "name": "contacts",
+            "archetype": "natural_entity_profile",
+            "why": "the people it books work for",
+            "archetype_hash": "5dce150a6dccb5fc71dff1489e1f4f9bfd41fb68c3c449306157e08a490b5663"
+          },
+          {
+            "name": "lcl_domain",
+            "archetype": "local_domain_log",
+            "why": "the kinds it defines for itself — a job's kind is a node in here",
+            "archetype_hash": "4e408fb840bf74ddd25e53e877f28219a6cf13108a3595d8827080341e141ca1"
+          },
+          {
+            "name": "canvass_log",
+            "archetype": "canvass_visit",
+            "why": "where a knock is recorded — the house, the day, what came of it",
+            "archetype_hash": "7ec940fd1ea6bf91ac09c51740a83fb06ddd3d8008b1a3796bf8707cef67821c"
+          },
+          {
+            "name": "projects",
+            "archetype": "project_profile",
+            "why": "the standing things this instance's jobs are done against",
+            "archetype_hash": "13c86ac3949f5730a8e517805de03d81eb8d5952613e2cba9eb3aade9655e230"
+          }
+        ],
+        "documents_any": [],
+        "fields": [
+          "msn_id",
+          "ruiqi_id",
+          "email",
+          "sosvid",
+          "nominal",
+          "utc",
+          "website"
+        ],
+        "archetypes": []
+      },
+      "writes": [
+        {
+          "document_kind": "job_event",
+          "action": "save_job",
+          "sandbox_id": ""
+        },
+        {
+          "document_kind": "job",
+          "action": "save_job_document",
+          "sandbox_id": ""
+        },
+        {
+          "document_kind": "record",
+          "action": "create_site",
+          "sandbox_id": ""
+        },
+        {
+          "document_kind": "project",
+          "action": "save_project",
+          "sandbox_id": ""
+        },
+        {
+          "document_kind": "contact",
+          "action": "save_contact",
+          "sandbox_id": ""
+        }
+      ],
+      "icon": "quiar",
+      "hub_tool": "quiar",
+      "app_sandbox": {
+        "namespace": "registrar",
+        "why": "A booking instance's anchor is copied verbatim from the registrar's, so its numbering IS the registrar's — installing this app records that claim instead of a hand edit and a deploy.",
+        "documents": []
+      },
+      "port_declarations": [],
+      "scoped_features": [
+        {
+          "tool_id": "calendar",
+          "scope": "app_sandbox",
+          "why": "The hub's calendar tab is this instance's own schedule, pinned; the standalone calendar tool is the cross-sandbox surface with per-sandbox toggles."
+        },
+        {
+          "tool_id": "contacts_manager",
+          "scope": "app_sandbox",
+          "why": "The hub's Clients tab edits this sandbox's own contacts; opening a contacts document in the Compendium is the same primitive on that document's own books."
+        }
+      ],
+      "port_fills": [],
+      "publishable": true,
+      "digest": "sha256:431edb00eebd6f64c75d2413556745dc3199004b7eddad59b216e5c3eb3aca5c"
+    }
+  ]
+}

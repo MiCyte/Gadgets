@@ -1,8 +1,17 @@
 #!/usr/bin/env python3
-"""Write catalogue.json from the declarations in declarations/; --check refuses drift.
+"""Write catalogue.json and packages.json from declarations/; --check refuses drift.
 
-    python3 scripts/build_catalogue.py           # rewrite catalogue.json
-    python3 scripts/build_catalogue.py --check   # exit 1 if catalogue.json is not what the files say
+    python3 scripts/build_catalogue.py           # rewrite both
+    python3 scripts/build_catalogue.py --check   # exit 1 if either is not what the files say
+
+Two outputs from the same files, for two readers:
+
+* `catalogue.json` (micyte.gadgets.catalogue.v1): the LISTING a site draws, with each
+  declaration's path, size, sha256 and digest.
+* `packages.json` (micyte.packages.manifest.v1): the FEED a portal pulls, the same format
+  `GET /__mss/public/packages` serves; its `packages` list is exactly the `package` field
+  of each declaration, sorted by `package_id`, so `micyte.tools._packages_manifest.
+  packages_from_manifest` reads it unchanged.
 
 The catalogue is DERIVED. Every value in it is read from a declaration file except two
 constants below (where the repository lives, where MiCyte lives), so the catalogue and the
@@ -23,6 +32,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 DECLARATIONS = ROOT / "declarations"
 CATALOGUE = ROOT / "catalogue.json"
+PACKAGES = ROOT / "packages.json"
+MANIFEST_SCHEMA = "micyte.packages.manifest.v1"
 
 SCHEMA = "micyte.gadgets.catalogue.v1"
 DECLARATION_SCHEMA = "micyte.gadget.declaration.v1"
@@ -116,6 +127,28 @@ def catalogue() -> dict:
     }
 
 
+def packages_manifest() -> dict:
+    """The portal's feed: `micyte.packages.manifest.v1`, as `manifest_of` shapes it.
+
+    `build` is not a portal build id here (there is no portal): it is a sha256 over the
+    sorted declaration digests, so it moves exactly when a declaration's content does,
+    and a puller can use it the way it uses the portal's ETag.
+    """
+    docs = [json.loads(p.read_bytes()) for p in sorted(DECLARATIONS.glob("*.micytepkg.json"))]
+    packages = sorted((d["package"] for d in docs), key=lambda p: p["package_id"])
+    publishers = sorted({str(d.get("publisher") or "") for d in docs})
+    if len(publishers) != 1:
+        raise SystemExit(f"REFUSED: declarations name {len(publishers)} publishers: {publishers}")
+    build = hashlib.sha256("\n".join(p["digest"] for p in packages).encode()).hexdigest()
+    return {
+        "schema": MANIFEST_SCHEMA,
+        "publisher": publishers[0],
+        "build": f"gadgets-{build[:16]}",
+        "micyte_version": max((str(d.get("micyte_version") or "") for d in docs), key=_version_key),
+        "packages": packages,
+    }
+
+
 def render(doc: dict) -> str:
     return json.dumps(doc, indent=2, ensure_ascii=False) + "\n"
 
@@ -126,17 +159,19 @@ def main(argv: list[str] | None = None) -> int:
     args = ap.parse_args(argv)
     doc = catalogue()
     count = len(doc["gadgets"])
-    wanted = render(doc)
-    have = CATALOGUE.read_text(encoding="utf-8") if CATALOGUE.is_file() else ""
+    outputs = {CATALOGUE: render(doc), PACKAGES: render(packages_manifest())}
+    stale = [p.name for p, text in outputs.items()
+             if (p.read_text(encoding="utf-8") if p.is_file() else "") != text]
     if args.check:
-        if have != wanted:
-            print("REFUSED: catalogue.json is not what declarations/ says; "
+        if stale:
+            print(f"REFUSED: {', '.join(stale)} not what declarations/ says; "
                   "run scripts/build_catalogue.py", file=sys.stderr)
             return 1
-        print(f"current: catalogue.json lists {count} gadget(s), sha256 and digest per file")
+        print(f"current: catalogue.json and packages.json list {count} gadget(s)")
         return 0
-    CATALOGUE.write_text(wanted, encoding="utf-8")
-    print(f"wrote catalogue.json ({count} gadget(s))")
+    for path, text in outputs.items():
+        path.write_text(text, encoding="utf-8")
+    print(f"wrote catalogue.json and packages.json ({count} gadget(s))")
     return 0
 
 

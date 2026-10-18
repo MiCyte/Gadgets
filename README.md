@@ -1,9 +1,12 @@
 # MiCyte gadgets
 
 The catalogue of gadgets for [MiCyte](https://github.com/MiCyte/MiCyte): one declaration
-per gadget, and `catalogue.json` listing them with their digests. micyte.com's
-[Gadgets page](https://micyte.com/gadgets) is built from this repository, and so is the
-portal's marketplace.
+per gadget, and two files derived from them for two readers:
+
+| file | schema | read by |
+|---|---|---|
+| `catalogue.json` | `micyte.gadgets.catalogue.v1` | the site listing: micyte.com's [Gadgets page](https://micyte.com/gadgets) (paths, sizes, sha256s, requirements) |
+| `packages.json` | `micyte.packages.manifest.v1` | the portal's feed: the marketplace pulls it, published at `https://micyte.com/assets/gadgets/packages.json` |
 
 A gadget is a decision about what ships together: an **app** (a hub over its own tools,
 usually with a sandbox of its own) or an **extension** (it fills a port an app employs,
@@ -25,9 +28,10 @@ it is `null` for every gadget.
 ## Layout
 
 ```
-catalogue.json                 the list; derived from declarations/, never edited by hand
+catalogue.json                 the site listing; derived from declarations/, never edited by hand
+packages.json                  the portal feed; derived from declarations/, never edited by hand
 declarations/<id>-<version>.micytepkg.json
-scripts/build_catalogue.py     writes catalogue.json; --check refuses drift (stdlib only)
+scripts/build_catalogue.py     writes both; --check refuses drift in either (stdlib only)
 ```
 
 ## The catalogue format: `micyte.gadgets.catalogue.v1`
@@ -89,6 +93,26 @@ scripts/build_catalogue.py     writes catalogue.json; --check refuses drift (std
 
 Everything in an entry except `declaration.path`, `bytes` and `sha256` is read from the
 declaration itself, so the full record is always the file.
+
+## The portal feed: `micyte.packages.manifest.v1`
+
+`packages.json` is the format `GET /__mss/public/packages` already serves, so a portal
+reads it with `micyte.tools._packages_manifest.packages_from_manifest` unchanged:
+
+```json
+{
+  "schema": "micyte.packages.manifest.v1",
+  "publisher": "micyte.com",
+  "build": "gadgets-<16 hex>",
+  "micyte_version": "0.6.0",
+  "packages": [ { "package_id": "brevat", "version": "1.3.0", "…": "…", "digest": "sha256:…" } ]
+}
+```
+
+`packages` is exactly the `package` field of each declaration, sorted by `package_id`.
+`build` is the first 16 hex of a sha256 over the sorted declaration digests, so it moves
+exactly when a declaration's content does: a puller can treat it as the ETag. The
+schema is MiCyte's, not this repository's; a change to it is a MiCyte change first.
 
 ## Checking what you downloaded
 
