@@ -1,0 +1,125 @@
+{
+  "schema": "micyte.gadget.declaration.v1",
+  "what_this_is": "This file ENABLES tools; it never adds code. Every tool named here is already in the MiCyte package your instance runs \u2014 installing from this declaration shows those tools and creates the blank documents they need. It cannot introduce a tool your build does not have, and it grants nothing: showing a tool is not permitting it, and what a tool may write is decided by your instance's own grants, which deny by default.",
+  "how_to_verify": "`digest` is sha256 over this declaration canonically serialized, excluding version, label, summary, icon and publishable \u2014 the same value micyte.tools._packages_manifest.declaration_digest computes, which is what an instance compares when it pulls the same declaration over GET /__mss/public/packages. A declaration whose digest does not match the one your instance computes is not the declaration this build published.",
+  "publisher": "micyte.com",
+  "micyte_version": "0.6.0",
+  "generated_at": "2026-10-18T02:08:44Z",
+  "digest": "sha256:5c3be99bdb9fb8b26f0e15632c7dbdec636ef2786f8b1ce41460e6a56fa7af26",
+  "package": {
+    "package_id": "brevat",
+    "version": "1.3.0",
+    "label": "Brevat",
+    "summary": "Products, supply, sales and the standing offer, for an instance that sells goods. The commerce seam is DECLARED here and bound \u2014 and granted \u2014 by the operator on Ports, never by installing.",
+    "source": "local",
+    "tools": [
+      "brevat",
+      "product_catalog",
+      "stock_log",
+      "supply_ledger",
+      "sales_ledger",
+      "offer_ledger"
+    ],
+    "requires": {
+      "sources": [],
+      "documents": [
+        {
+          "name": "product_profiles",
+          "archetype": "offering_record",
+          "why": "what this instance sells, structurally \u2014 the products its offers price",
+          "archetype_hash": "979512b16c751e40d8e24a1c4f228972f1b16c3760e36da6aa9fdb67d5e9e430"
+        },
+        {
+          "name": "stock_log",
+          "archetype": "stock_entry",
+          "why": "what came in and what went out \u2014 the log the on-hand figure is summed from",
+          "archetype_hash": "6b44e341c362d6798b228f825d1312dd8598b98355ac255673f2ca47b44b8edb"
+        },
+        {
+          "name": "invoices",
+          "archetype": "invoice",
+          "why": "what this instance bought in \u2014 invoice rows, dated and priced",
+          "archetype_hash": "adf356bbf5ba69f5ce9131ac2e28a84e785ac9644904c4e1eb95fef069144288"
+        },
+        {
+          "name": "sales",
+          "archetype": "invoice",
+          "why": "what this instance sold \u2014 invoice-shaped rows; the document is the direction",
+          "archetype_hash": "adf356bbf5ba69f5ce9131ac2e28a84e785ac9644904c4e1eb95fef069144288"
+        },
+        {
+          "name": "offering",
+          "archetype": "offer",
+          "why": "the standing offers a storefront or the commerce port reads",
+          "archetype_hash": "760c970ee82252f5c8e45e24460155a0c76c82017cf319a18aea90ea1e871fe0"
+        }
+      ],
+      "documents_any": [],
+      "fields": [],
+      "archetypes": []
+    },
+    "writes": [
+      {
+        "document_kind": "product_profile",
+        "action": "add_product",
+        "sandbox_id": ""
+      },
+      {
+        "document_kind": "stock_log",
+        "action": "record_stock",
+        "sandbox_id": ""
+      },
+      {
+        "document_kind": "invoice",
+        "action": "add_supply",
+        "sandbox_id": ""
+      },
+      {
+        "document_kind": "sale",
+        "action": "add_sale",
+        "sandbox_id": ""
+      },
+      {
+        "document_kind": "offering",
+        "action": "set_offer",
+        "sandbox_id": ""
+      }
+    ],
+    "icon": "brevat",
+    "hub_tool": "brevat",
+    "app_sandbox": {
+      "namespace": "farm",
+      "why": "A goods-selling instance's anchor comes from the farm template (`bootstrap_farm_sandbox`), whose numbering carries the fiat/price babelette the ledger writes against \u2014 installing records that claim instead of a hand edit and a deploy.",
+      "documents": [
+        {
+          "name": "plantings",
+          "archetype": "planting",
+          "why": "supply batches committed to plots \u2014 the planting book add_planting appends to",
+          "archetype_hash": ""
+        }
+      ]
+    },
+    "port_declarations": [
+      {
+        "port_id": "commerce_offering",
+        "why": "what this instance offers, published and quotable; payment capture rides PayPal when \u2014 and only when \u2014 an operator binds and grants it",
+        "writes": [],
+        "calls": [
+          {
+            "service": "paypal",
+            "operation": "order.create"
+          },
+          {
+            "service": "paypal",
+            "operation": "order.capture"
+          }
+        ],
+        "operations": []
+      }
+    ],
+    "scoped_features": [],
+    "port_fills": [],
+    "publishable": true,
+    "digest": "sha256:5c3be99bdb9fb8b26f0e15632c7dbdec636ef2786f8b1ce41460e6a56fa7af26"
+  }
+}

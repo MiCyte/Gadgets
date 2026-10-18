@@ -1,0 +1,134 @@
+{
+  "schema": "micyte.gadget.declaration.v1",
+  "what_this_is": "This file ENABLES tools; it never adds code. Every tool named here is already in the MiCyte package your instance runs \u2014 installing from this declaration shows those tools and creates the blank documents they need. It cannot introduce a tool your build does not have, and it grants nothing: showing a tool is not permitting it, and what a tool may write is decided by your instance's own grants, which deny by default.",
+  "how_to_verify": "`digest` is sha256 over this declaration canonically serialized, excluding version, label, summary, icon and publishable \u2014 the same value micyte.tools._packages_manifest.declaration_digest computes, which is what an instance compares when it pulls the same declaration over GET /__mss/public/packages. A declaration whose digest does not match the one your instance computes is not the declaration this build published.",
+  "publisher": "micyte.com",
+  "micyte_version": "0.6.0",
+  "generated_at": "2026-10-18T02:08:44Z",
+  "digest": "sha256:07d21fa7aca379e783af8d82465ad35b7abece8ff60caad5f337fd5d57a69424",
+  "package": {
+    "package_id": "fnd_service",
+    "version": "1.7.0",
+    "label": "FND Service",
+    "summary": "Connect this instance to what FND already runs for it: the mail \u2014 read what arrived, administer the addresses on its domains, answer from one of them, or hand a message to a person \u2014 and the served site, where pages can be read and edited, writing published, sent to the people who subscribed, or taken down, assets uploaded, and the month's traffic counted. FND holds the accounts; this instance holds no credential.",
+    "source": "local",
+    "tools": [],
+    "requires": {
+      "sources": [],
+      "documents": [],
+      "documents_any": [],
+      "fields": [],
+      "archetypes": []
+    },
+    "writes": [],
+    "icon": "fnd_service",
+    "hub_tool": "",
+    "app_sandbox": null,
+    "port_declarations": [],
+    "scoped_features": [],
+    "port_fills": [
+      {
+        "port_id": "email_provider",
+        "adapter_id": "fnd_app.packages.grantee_services.fnd_service.email.FndEmailAdapter",
+        "service": "fnd_service",
+        "why": "FND already receives and sends this domain's mail, and holds the addresses it is received at. Selecting this lets the instance work with both directly instead of a person copying it across.",
+        "functions": [
+          {
+            "operation": "mailbox.list",
+            "why": "See what has arrived. Discloses who wrote, and when."
+          },
+          {
+            "operation": "message.fetch",
+            "why": "Open one message. Discloses what they said."
+          },
+          {
+            "operation": "alias.list",
+            "why": "See which addresses exist on this client's domains, where each hands its mail on to, and how far each has got through send-as confirmation. Discloses the shape of somebody's mail and none of its contents. Withhold it and PIM's Email tab has nothing to draw."
+          },
+          {
+            "operation": "alias.create",
+            "why": "Bring a new address into existence on a domain this client owns. Withhold it and minting addresses stays the operator's job, which is where it was before PIM."
+          },
+          {
+            "operation": "alias.remove",
+            "why": "Take an address away. Separate from creating one because an address that has been given out is on somebody's letterhead, and removing it loses the mail already addressed to it."
+          },
+          {
+            "operation": "forwarding.set",
+            "why": "Change where an existing address hands its mail on to. The change a client asks for most often, and the one that silently redirects correspondence when it is wrong \u2014 so it is refusable on its own rather than folded into `alias.create`."
+          },
+          {
+            "operation": "message.send",
+            "why": "Send from this address, to whoever the caller names. The only function a stranger ever sees."
+          },
+          {
+            "operation": "message.forward",
+            "why": "Hand a message to an address configured in advance. Separate from sending because handing work to the owner and writing to anyone are different permissions."
+          },
+          {
+            "operation": "identity.verify_request",
+            "why": "Send the setup handoff to the personal address behind a mailbox, so its owner can confirm they may send AS the domained one. It SENDS MAIL to a person, which is why it sits here rather than beside `alias.create`. Withhold it and addresses can be made but never sent from."
+          },
+          {
+            "operation": "identity.remind",
+            "why": "Nudge an owner who has not finished confirming. Also sends mail, and separately refusable: an operator may want the one-time handoff without a reminder cadence."
+          }
+        ]
+      },
+      {
+        "port_id": "site_hosting",
+        "adapter_id": "fnd_app.packages.grantee_services.fnd_service.site.FndSiteAdapter",
+        "service": "fnd_service",
+        "why": "FND already serves this domain's site and counts what visits it. Selecting this lets the instance read, edit and publish to it instead of an operator typing it into a dashboard on their behalf.",
+        "functions": [
+          {
+            "operation": "page.list",
+            "why": "See which pages the site has and which pieces it carries. Discloses the shape of somebody's site and nothing else."
+          },
+          {
+            "operation": "analytics.read",
+            "why": "A month of the site's traffic, counted. The only function here that touches nobody's words and the only one an unattended routine performs, so it is what an operator grants a nightly refresh while every write below stays withheld."
+          },
+          {
+            "operation": "content.replace",
+            "why": "Apply one {old, new} pair to the site's source: change the words a stranger reads on a page that already exists. Withhold it and a client can look at their own site and not fix a typo in it."
+          },
+          {
+            "operation": "article.retire",
+            "why": "Take one down. Separate from publishing because a mistaken publish is embarrassing and a mistaken retire loses work, and an operator may well permit one and not the other."
+          },
+          {
+            "operation": "article.publish",
+            "why": "Put a piece of writing on the public internet under this client's name, at a new address, with a tile pointing at it. The function a stranger reads."
+          },
+          {
+            "operation": "article.send",
+            "why": "Put the same piece of writing in the inboxes of the people who subscribed to this site. THE ONE FUNCTION HERE THAT CANNOT BE UNDONE: a publish can be taken back down in a minute and a send cannot be taken back at all. Withhold it and the client writes for the web exactly as before; grant it and they can mail everyone on their list without asking anybody. The surface states the count before it sends."
+          },
+          {
+            "operation": "asset.swap",
+            "why": "Point a picture on a page at a different file the site already has. Its own permission because its fence is its own: the target must be in the site's gallery, where a content replacement could point an <img> anywhere. The store has refused an off-gallery target since the legacy design tab, and nothing could reach that check until this."
+          },
+          {
+            "operation": "asset.upload",
+            "why": "Put new bytes at a public URL. Deliberately not the same permission as replacing a word: an edit changes what the site SAYS, an upload changes what it SERVES, and the second is how a site comes to host a file nobody reviewed."
+          },
+          {
+            "operation": "profile.edit",
+            "why": "Rewrite a profile the pages are generated from \u2014 which photograph stands for a project, the order and hiding of the rest, its short and long description \u2014 and rebuild them. Its own permission because one save reaches several pages at once and can take a photograph off the site without deleting it; every ref is fenced to the profile's own gallery."
+          },
+          {
+            "operation": "contact.set_subscription",
+            "why": "Put one reader on this site's newsletter list, or take one off, by hand \u2014 through the newsletter runtime's one subscription writer, so a toggle from PIM and a click on an unsubscribe link leave the same shape. Refuses an address the roster does not hold: a toggle is not a signup."
+          },
+          {
+            "operation": "project.export",
+            "why": "Write a project document's view beside the site's assets, land any picture the site's pool lacks, and derive the profile the pages are generated from \u2014 the instance's books become the source and the leaflet a copy. Its own permission because it lands files and rewrites a profile in one act."
+          }
+        ]
+      }
+    ],
+    "publishable": true,
+    "digest": "sha256:07d21fa7aca379e783af8d82465ad35b7abece8ff60caad5f337fd5d57a69424"
+  }
+}

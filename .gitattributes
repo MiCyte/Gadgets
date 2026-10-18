@@ -1,0 +1,4 @@
+# The catalogue states each declaration's sha256 over its exact bytes. A checkout that
+# rewrote line endings (core.autocrlf on Windows) would hand you files whose sha256 no
+# longer matches, so these files are never normalised.
+*.json -text

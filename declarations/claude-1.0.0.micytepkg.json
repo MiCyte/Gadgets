@@ -1,0 +1,46 @@
+{
+  "schema": "micyte.gadget.declaration.v1",
+  "what_this_is": "This file ENABLES tools; it never adds code. Every tool named here is already in the MiCyte package your instance runs \u2014 installing from this declaration shows those tools and creates the blank documents they need. It cannot introduce a tool your build does not have, and it grants nothing: showing a tool is not permitting it, and what a tool may write is decided by your instance's own grants, which deny by default.",
+  "how_to_verify": "`digest` is sha256 over this declaration canonically serialized, excluding version, label, summary, icon and publishable \u2014 the same value micyte.tools._packages_manifest.declaration_digest computes, which is what an instance compares when it pulls the same declaration over GET /__mss/public/packages. A declaration whose digest does not match the one your instance computes is not the declaration this build published.",
+  "publisher": "micyte.com",
+  "micyte_version": "0.6.0",
+  "generated_at": "2026-10-18T02:08:44Z",
+  "digest": "sha256:ae5b2a30cc01a822305592fcc62fb973c24d46a52b3e2c3a35f44011e8db0e84",
+  "package": {
+    "package_id": "claude",
+    "version": "1.0.0",
+    "label": "Claude",
+    "summary": "Send text to Anthropic's models and read the reply. The key is yours and stays on this instance; what the call discloses is the text itself.",
+    "source": "local",
+    "tools": [],
+    "requires": {
+      "sources": [],
+      "documents": [],
+      "documents_any": [],
+      "fields": [],
+      "archetypes": []
+    },
+    "writes": [],
+    "icon": "claude",
+    "hub_tool": "",
+    "app_sandbox": null,
+    "port_declarations": [],
+    "scoped_features": [],
+    "port_fills": [
+      {
+        "port_id": "ai_provider",
+        "adapter_id": "fnd_app.packages.peripherals.ai.anthropic_messages.AnthropicMessagesAdapter",
+        "service": "anthropic",
+        "why": "A draft goes to the model and the reply comes back unsaved. Writing it down stays a person's own act.",
+        "functions": [
+          {
+            "operation": "messages.create",
+            "why": "Send the turns and pay for the answer. What it discloses is whatever text was in them."
+          }
+        ]
+      }
+    ],
+    "publishable": true,
+    "digest": "sha256:ae5b2a30cc01a822305592fcc62fb973c24d46a52b3e2c3a35f44011e8db0e84"
+  }
+}

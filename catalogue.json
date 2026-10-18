@@ -1,0 +1,338 @@
+{
+  "schema": "micyte.gadgets.catalogue.v1",
+  "repository": "https://github.com/MiCyte/Gadgets",
+  "micyte": {
+    "version": "0.6.0",
+    "source": "https://github.com/MiCyte/MiCyte"
+  },
+  "gadgets": [
+    {
+      "id": "brevat",
+      "kind": "app",
+      "label": "Brevat",
+      "version": "1.3.0",
+      "summary": "Products, supply, sales and the standing offer, for an instance that sells goods. The commerce seam is DECLARED here and bound — and granted — by the operator on Ports, never by installing.",
+      "icon": "brevat",
+      "micyte_version": "0.6.0",
+      "tools": [
+        "brevat",
+        "product_catalog",
+        "stock_log",
+        "supply_ledger",
+        "sales_ledger",
+        "offer_ledger"
+      ],
+      "hub_tool": "brevat",
+      "requires": {
+        "sandbox": {
+          "needed": true,
+          "namespace": "farm"
+        },
+        "documents": [
+          "product_profiles",
+          "stock_log",
+          "invoices",
+          "sales",
+          "offering",
+          "plantings"
+        ],
+        "archetypes": [
+          "offering_record",
+          "stock_entry",
+          "invoice",
+          "offer",
+          "planting"
+        ],
+        "sources": [],
+        "fields": []
+      },
+      "ports": {
+        "declares": [
+          "commerce_offering"
+        ],
+        "fills": [],
+        "services": [
+          "paypal"
+        ]
+      },
+      "declaration": {
+        "path": "declarations/brevat-1.3.0.micytepkg.json",
+        "schema": "micyte.gadget.declaration.v1",
+        "bytes": 5012,
+        "sha256": "950e04ff12da9a16f039cc44955470e520ec320f5b2fd48853e5761a8c63073d",
+        "digest": "sha256:5c3be99bdb9fb8b26f0e15632c7dbdec636ef2786f8b1ce41460e6a56fa7af26"
+      },
+      "package": null
+    },
+    {
+      "id": "enchir",
+      "kind": "app",
+      "label": "Enchir",
+      "version": "1.2.0",
+      "summary": "The projects, commissions and pieces of work an instance keeps, grouped by what they are — and, when a website is connected, the profiles that site offers them up through: which photograph stands for each, the order of the rest, and the short and long description.",
+      "icon": "enchir",
+      "micyte_version": "0.6.0",
+      "tools": [
+        "enchir"
+      ],
+      "hub_tool": "enchir",
+      "requires": {
+        "sandbox": {
+          "needed": false,
+          "namespace": ""
+        },
+        "documents": [],
+        "archetypes": [],
+        "sources": [],
+        "fields": []
+      },
+      "ports": {
+        "declares": [
+          "site_hosting"
+        ],
+        "fills": [],
+        "services": []
+      },
+      "declaration": {
+        "path": "declarations/enchir-1.2.0.micytepkg.json",
+        "schema": "micyte.gadget.declaration.v1",
+        "bytes": 2566,
+        "sha256": "c7eea471ff406dfc8379abdd0fdee1086722a621478478c7ed1139977545aa04",
+        "digest": "sha256:179181be9dd35b64cd77b874ac3e92f9fc1902c2085e97555018bb3fdd3f976f"
+      },
+      "package": null
+    },
+    {
+      "id": "oveure",
+      "kind": "app",
+      "label": "Oveure",
+      "version": "1.3.0",
+      "summary": "Notes, the domain sheet, and the instance's automation and AI seams. The AI providers are DECLARED here and bound — and granted — by the operator on Ports, never by installing.",
+      "icon": "oveure",
+      "micyte_version": "0.6.0",
+      "tools": [
+        "oveure",
+        "lcl_editor"
+      ],
+      "hub_tool": "oveure",
+      "requires": {
+        "sandbox": {
+          "needed": true,
+          "namespace": ""
+        },
+        "documents": [
+          "lcl_domain"
+        ],
+        "archetypes": [
+          "local_domain_log"
+        ],
+        "sources": [],
+        "fields": []
+      },
+      "ports": {
+        "declares": [
+          "ai_provider",
+          "email_provider",
+          "sms_provider"
+        ],
+        "fills": [],
+        "services": [
+          "anthropic",
+          "openai"
+        ]
+      },
+      "declaration": {
+        "path": "declarations/oveure-1.3.0.micytepkg.json",
+        "schema": "micyte.gadget.declaration.v1",
+        "bytes": 6110,
+        "sha256": "ff269fe2d9a63ed7cc3e6142d5ba415e0ad8465afb03c60dfec21a5b387c34b5",
+        "digest": "sha256:1b0958316b89300d2192c2167af23ed55a21ee436695fb19cdb29584f488ec81"
+      },
+      "package": null
+    },
+    {
+      "id": "pim",
+      "kind": "app",
+      "label": "PIM",
+      "version": "0.3.0",
+      "summary": "The client's own record of their provider-service relationship, held as datum documents in an isolated sandbox and fed through the ports their own service key permits. Home says what the sandbox keeps and what the client pays; Authoring and Design are their site and the writing published to it; Analytics, Email, Resources, Storage, Payment and Domain each light when the seam that feeds them is bound and say why when it is not.",
+      "icon": "pim",
+      "micyte_version": "0.6.0",
+      "tools": [
+        "pim_overview",
+        "pim_design"
+      ],
+      "hub_tool": "pim_overview",
+      "requires": {
+        "sandbox": {
+          "needed": true,
+          "namespace": ""
+        },
+        "documents": [
+          "contacts"
+        ],
+        "archetypes": [
+          "natural_entity_profile"
+        ],
+        "sources": [],
+        "fields": []
+      },
+      "ports": {
+        "declares": [
+          "email_provider",
+          "site_hosting"
+        ],
+        "fills": [],
+        "services": []
+      },
+      "declaration": {
+        "path": "declarations/pim-0.3.0.micytepkg.json",
+        "schema": "micyte.gadget.declaration.v1",
+        "bytes": 3981,
+        "sha256": "fa2f398696de7d08fdf8b5d7871fd0147420a38a2088e84b3cb145ae91776651",
+        "digest": "sha256:8e5c418885d410f9989d5701539fbee85f6515214d6a0c981ed2a0cbef7d007b"
+      },
+      "package": null
+    },
+    {
+      "id": "quiar",
+      "kind": "app",
+      "label": "Quiar – Freelancer",
+      "version": "2.4.0",
+      "summary": "Book work, group it into projects, keep the people you book it for, and see the week. Nothing in it is trade-specific: a job's kind is a node the instance mints for itself.",
+      "icon": "quiar",
+      "micyte_version": "0.6.0",
+      "tools": [
+        "quiar",
+        "quiar_overview",
+        "job_manager",
+        "project_manager",
+        "contacts_manager",
+        "calendar"
+      ],
+      "hub_tool": "quiar",
+      "requires": {
+        "sandbox": {
+          "needed": true,
+          "namespace": "registrar"
+        },
+        "documents": [
+          "job_log",
+          "contacts",
+          "lcl_domain",
+          "canvass_log",
+          "projects"
+        ],
+        "archetypes": [
+          "job_event",
+          "natural_entity_profile",
+          "local_domain_log",
+          "canvass_visit",
+          "project_profile"
+        ],
+        "sources": [
+          "registrar/legal_entity"
+        ],
+        "fields": [
+          "msn_id",
+          "ruiqi_id",
+          "email",
+          "sosvid",
+          "nominal",
+          "utc",
+          "website"
+        ]
+      },
+      "ports": {
+        "declares": [],
+        "fills": [],
+        "services": []
+      },
+      "declaration": {
+        "path": "declarations/quiar-2.4.0.micytepkg.json",
+        "schema": "micyte.gadget.declaration.v1",
+        "bytes": 4971,
+        "sha256": "3df3b01d8a9715884498ffa11fa783dfad3c8f50f1c155a05e389c1f062413be",
+        "digest": "sha256:431edb00eebd6f64c75d2413556745dc3199004b7eddad59b216e5c3eb3aca5c"
+      },
+      "package": null
+    },
+    {
+      "id": "claude",
+      "kind": "extension",
+      "label": "Claude",
+      "version": "1.0.0",
+      "summary": "Send text to Anthropic's models and read the reply. The key is yours and stays on this instance; what the call discloses is the text itself.",
+      "icon": "claude",
+      "micyte_version": "0.6.0",
+      "tools": [],
+      "hub_tool": "",
+      "requires": {
+        "sandbox": {
+          "needed": false,
+          "namespace": ""
+        },
+        "documents": [],
+        "archetypes": [],
+        "sources": [],
+        "fields": []
+      },
+      "ports": {
+        "declares": [],
+        "fills": [
+          "ai_provider"
+        ],
+        "services": [
+          "anthropic"
+        ]
+      },
+      "declaration": {
+        "path": "declarations/claude-1.0.0.micytepkg.json",
+        "schema": "micyte.gadget.declaration.v1",
+        "bytes": 2352,
+        "sha256": "292b2232053d5e5ca1a8f5a4b9f874b94930806bb5c40b275246a43c7ca0f16a",
+        "digest": "sha256:ae5b2a30cc01a822305592fcc62fb973c24d46a52b3e2c3a35f44011e8db0e84"
+      },
+      "package": null
+    },
+    {
+      "id": "fnd_service",
+      "kind": "extension",
+      "label": "FND Service",
+      "version": "1.7.0",
+      "summary": "Connect this instance to what FND already runs for it: the mail — read what arrived, administer the addresses on its domains, answer from one of them, or hand a message to a person — and the served site, where pages can be read and edited, writing published, sent to the people who subscribed, or taken down, assets uploaded, and the month's traffic counted. FND holds the accounts; this instance holds no credential.",
+      "icon": "fnd_service",
+      "micyte_version": "0.6.0",
+      "tools": [],
+      "hub_tool": "",
+      "requires": {
+        "sandbox": {
+          "needed": false,
+          "namespace": ""
+        },
+        "documents": [],
+        "archetypes": [],
+        "sources": [],
+        "fields": []
+      },
+      "ports": {
+        "declares": [],
+        "fills": [
+          "email_provider",
+          "site_hosting"
+        ],
+        "services": [
+          "fnd_service"
+        ]
+      },
+      "declaration": {
+        "path": "declarations/fnd_service-1.7.0.micytepkg.json",
+        "schema": "micyte.gadget.declaration.v1",
+        "bytes": 9229,
+        "sha256": "3bf89bcfc6bf10ef0253b438b0f7d5a1bc6c6187e35b36b2272d85170d53f2b6",
+        "digest": "sha256:07d21fa7aca379e783af8d82465ad35b7abece8ff60caad5f337fd5d57a69424"
+      },
+      "package": null
+    }
+  ]
+}
