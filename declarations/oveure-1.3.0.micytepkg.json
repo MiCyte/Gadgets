@@ -1,0 +1,182 @@
+{
+  "schema": "micyte.gadget.declaration.v1",
+  "what_this_is": "This file ENABLES tools; it never adds code. Every tool named here is already in the MiCyte package your instance runs \u2014 installing from this declaration shows those tools and creates the blank documents they need. It cannot introduce a tool your build does not have, and it grants nothing: showing a tool is not permitting it, and what a tool may write is decided by your instance's own grants, which deny by default.",
+  "how_to_verify": "`digest` is sha256 over this declaration canonically serialized, excluding version, label, summary, icon and publishable \u2014 the same value micyte.tools._packages_manifest.declaration_digest computes, which is what an instance compares when it pulls the same declaration over GET /__mss/public/packages. A declaration whose digest does not match the one your instance computes is not the declaration this build published.",
+  "publisher": "micyte.com",
+  "micyte_version": "0.6.0",
+  "generated_at": "2026-10-18T02:08:44Z",
+  "digest": "sha256:1b0958316b89300d2192c2167af23ed55a21ee436695fb19cdb29584f488ec81",
+  "package": {
+    "package_id": "oveure",
+    "version": "1.3.0",
+    "label": "Oveure",
+    "summary": "Notes, the domain sheet, and the instance's automation and AI seams. The AI providers are DECLARED here and bound \u2014 and granted \u2014 by the operator on Ports, never by installing.",
+    "source": "local",
+    "tools": [
+      "oveure",
+      "lcl_editor"
+    ],
+    "requires": {
+      "sources": [],
+      "documents": [
+        {
+          "name": "lcl_domain",
+          "archetype": "local_domain_log",
+          "why": "the domain sheet \u2014 Oveure's substrate; notes and the ask relay hang beside it",
+          "archetype_hash": "4e408fb840bf74ddd25e53e877f28219a6cf13108a3595d8827080341e141ca1"
+        }
+      ],
+      "documents_any": [],
+      "fields": [],
+      "archetypes": []
+    },
+    "writes": [
+      {
+        "document_kind": "lcl_type",
+        "action": "define_type",
+        "sandbox_id": ""
+      },
+      {
+        "document_kind": "lcl_type",
+        "action": "delete_type",
+        "sandbox_id": ""
+      },
+      {
+        "document_kind": "lcl_type",
+        "action": "define_record_type",
+        "sandbox_id": ""
+      },
+      {
+        "document_kind": "lcl_instance",
+        "action": "create_instance",
+        "sandbox_id": ""
+      },
+      {
+        "document_kind": "lcl_instance",
+        "action": "save_instance",
+        "sandbox_id": ""
+      },
+      {
+        "document_kind": "lcl_instance",
+        "action": "delete_instance",
+        "sandbox_id": ""
+      },
+      {
+        "document_kind": "lcl_type",
+        "action": "insert_node",
+        "sandbox_id": ""
+      },
+      {
+        "document_kind": "lcl_type",
+        "action": "define_root_type",
+        "sandbox_id": ""
+      },
+      {
+        "document_kind": "lcl_type",
+        "action": "rename_node",
+        "sandbox_id": ""
+      },
+      {
+        "document_kind": "lcl_type",
+        "action": "move_node",
+        "sandbox_id": ""
+      },
+      {
+        "document_kind": "lcl_type",
+        "action": "delete_node",
+        "sandbox_id": ""
+      },
+      {
+        "document_kind": "lcl_document",
+        "action": "create_document",
+        "sandbox_id": ""
+      },
+      {
+        "document_kind": "lcl_document",
+        "action": "attach_document",
+        "sandbox_id": ""
+      },
+      {
+        "document_kind": "lcl_document",
+        "action": "detach_document",
+        "sandbox_id": ""
+      },
+      {
+        "document_kind": "lcl_document",
+        "action": "file_artifact",
+        "sandbox_id": ""
+      },
+      {
+        "document_kind": "lcl_document",
+        "action": "set_node_icon",
+        "sandbox_id": ""
+      },
+      {
+        "document_kind": "note",
+        "action": "save_note",
+        "sandbox_id": ""
+      },
+      {
+        "document_kind": "note",
+        "action": "save_node_note",
+        "sandbox_id": ""
+      }
+    ],
+    "icon": "oveure",
+    "hub_tool": "oveure",
+    "app_sandbox": {
+      "namespace": "",
+      "why": "A knowledge sandbox's anchor is copied verbatim from the instance's own core anchor (scripts/bootstrap_app_sandbox.py), so its namespace is INHERITED \u2014 resolved at install, never stated as a token that could disagree with the copy.",
+      "documents": []
+    },
+    "port_declarations": [
+      {
+        "port_id": "ai_provider",
+        "why": "the ask relay \u2014 a draft sent to a hosted model, the reply returned unsaved; which providers may be asked is the operator's grant, per provider",
+        "writes": [],
+        "calls": [
+          {
+            "service": "anthropic",
+            "operation": "messages.create"
+          },
+          {
+            "service": "openai",
+            "operation": "messages.create"
+          }
+        ],
+        "operations": []
+      },
+      {
+        "port_id": "email_provider",
+        "why": "the mail this instance receives and answers: read what arrived, reply from the same address, or hand it to a person. Which extension carries it, and which of the four an operator permits, are both decided on Ports",
+        "writes": [],
+        "calls": [],
+        "operations": [
+          "mailbox.list",
+          "message.fetch",
+          "message.send",
+          "message.forward"
+        ]
+      },
+      {
+        "port_id": "sms_provider",
+        "why": "the text-message rail, same posture: declared before any use exists so the seam is visible on Ports, never granted by shipping",
+        "writes": [],
+        "calls": [],
+        "operations": [
+          "message.send"
+        ]
+      }
+    ],
+    "scoped_features": [
+      {
+        "tool_id": "lcl_editor",
+        "scope": "app_sandbox",
+        "why": "The hub's Domain tab is this sandbox's own sheet, whole; the standalone editor follows the instance switcher across sandboxes."
+      }
+    ],
+    "port_fills": [],
+    "publishable": true,
+    "digest": "sha256:1b0958316b89300d2192c2167af23ed55a21ee436695fb19cdb29584f488ec81"
+  }
+}

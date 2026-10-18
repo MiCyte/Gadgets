@@ -1,0 +1,126 @@
+{
+  "schema": "micyte.gadget.declaration.v1",
+  "what_this_is": "This file ENABLES tools; it never adds code. Every tool named here is already in the MiCyte package your instance runs \u2014 installing from this declaration shows those tools and creates the blank documents they need. It cannot introduce a tool your build does not have, and it grants nothing: showing a tool is not permitting it, and what a tool may write is decided by your instance's own grants, which deny by default.",
+  "how_to_verify": "`digest` is sha256 over this declaration canonically serialized, excluding version, label, summary, icon and publishable \u2014 the same value micyte.tools._packages_manifest.declaration_digest computes, which is what an instance compares when it pulls the same declaration over GET /__mss/public/packages. A declaration whose digest does not match the one your instance computes is not the declaration this build published.",
+  "publisher": "micyte.com",
+  "micyte_version": "0.6.0",
+  "generated_at": "2026-10-18T02:08:44Z",
+  "digest": "sha256:431edb00eebd6f64c75d2413556745dc3199004b7eddad59b216e5c3eb3aca5c",
+  "package": {
+    "package_id": "quiar",
+    "version": "2.4.0",
+    "label": "Quiar \u2013 Freelancer",
+    "summary": "Book work, group it into projects, keep the people you book it for, and see the week. Nothing in it is trade-specific: a job's kind is a node the instance mints for itself.",
+    "source": "local",
+    "tools": [
+      "quiar",
+      "quiar_overview",
+      "job_manager",
+      "project_manager",
+      "contacts_manager",
+      "calendar"
+    ],
+    "requires": {
+      "sources": [
+        {
+          "sandbox": "registrar",
+          "document": "legal_entity",
+          "why": "the address space the customer and site pickers resolve names in"
+        }
+      ],
+      "documents": [
+        {
+          "name": "job_log",
+          "archetype": "job_event",
+          "why": "the work this instance books",
+          "archetype_hash": "139bac18e16d06c29421d887fa257f3805c6f79c02f4d661f7636e61444d28e7"
+        },
+        {
+          "name": "contacts",
+          "archetype": "natural_entity_profile",
+          "why": "the people it books work for",
+          "archetype_hash": "5dce150a6dccb5fc71dff1489e1f4f9bfd41fb68c3c449306157e08a490b5663"
+        },
+        {
+          "name": "lcl_domain",
+          "archetype": "local_domain_log",
+          "why": "the kinds it defines for itself \u2014 a job's kind is a node in here",
+          "archetype_hash": "4e408fb840bf74ddd25e53e877f28219a6cf13108a3595d8827080341e141ca1"
+        },
+        {
+          "name": "canvass_log",
+          "archetype": "canvass_visit",
+          "why": "where a knock is recorded \u2014 the house, the day, what came of it",
+          "archetype_hash": "7ec940fd1ea6bf91ac09c51740a83fb06ddd3d8008b1a3796bf8707cef67821c"
+        },
+        {
+          "name": "projects",
+          "archetype": "project_profile",
+          "why": "the standing things this instance's jobs are done against",
+          "archetype_hash": "13c86ac3949f5730a8e517805de03d81eb8d5952613e2cba9eb3aade9655e230"
+        }
+      ],
+      "documents_any": [],
+      "fields": [
+        "msn_id",
+        "ruiqi_id",
+        "email",
+        "sosvid",
+        "nominal",
+        "utc",
+        "website"
+      ],
+      "archetypes": []
+    },
+    "writes": [
+      {
+        "document_kind": "job_event",
+        "action": "save_job",
+        "sandbox_id": ""
+      },
+      {
+        "document_kind": "job",
+        "action": "save_job_document",
+        "sandbox_id": ""
+      },
+      {
+        "document_kind": "record",
+        "action": "create_site",
+        "sandbox_id": ""
+      },
+      {
+        "document_kind": "project",
+        "action": "save_project",
+        "sandbox_id": ""
+      },
+      {
+        "document_kind": "contact",
+        "action": "save_contact",
+        "sandbox_id": ""
+      }
+    ],
+    "icon": "quiar",
+    "hub_tool": "quiar",
+    "app_sandbox": {
+      "namespace": "registrar",
+      "why": "A booking instance's anchor is copied verbatim from the registrar's, so its numbering IS the registrar's \u2014 installing this app records that claim instead of a hand edit and a deploy.",
+      "documents": []
+    },
+    "port_declarations": [],
+    "scoped_features": [
+      {
+        "tool_id": "calendar",
+        "scope": "app_sandbox",
+        "why": "The hub's calendar tab is this instance's own schedule, pinned; the standalone calendar tool is the cross-sandbox surface with per-sandbox toggles."
+      },
+      {
+        "tool_id": "contacts_manager",
+        "scope": "app_sandbox",
+        "why": "The hub's Clients tab edits this sandbox's own contacts; opening a contacts document in the Compendium is the same primitive on that document's own books."
+      }
+    ],
+    "port_fills": [],
+    "publishable": true,
+    "digest": "sha256:431edb00eebd6f64c75d2413556745dc3199004b7eddad59b216e5c3eb3aca5c"
+  }
+}

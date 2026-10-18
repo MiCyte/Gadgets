@@ -1,0 +1,48 @@
+{
+  "schema": "micyte.gadget.declaration.v1",
+  "what_this_is": "This file ENABLES tools; it never adds code. Every tool named here is already in the MiCyte package your instance runs \u2014 installing from this declaration shows those tools and creates the blank documents they need. It cannot introduce a tool your build does not have, and it grants nothing: showing a tool is not permitting it, and what a tool may write is decided by your instance's own grants, which deny by default.",
+  "how_to_verify": "`digest` is sha256 over this declaration canonically serialized, excluding version, label, summary, icon and publishable \u2014 the same value micyte.tools._packages_manifest.declaration_digest computes, which is what an instance compares when it pulls the same declaration over GET /__mss/public/packages. A declaration whose digest does not match the one your instance computes is not the declaration this build published.",
+  "publisher": "micyte.com",
+  "micyte_version": "0.6.0",
+  "generated_at": "2026-10-18T02:08:44Z",
+  "digest": "sha256:179181be9dd35b64cd77b874ac3e92f9fc1902c2085e97555018bb3fdd3f976f",
+  "package": {
+    "package_id": "enchir",
+    "version": "1.2.0",
+    "label": "Enchir",
+    "summary": "The projects, commissions and pieces of work an instance keeps, grouped by what they are \u2014 and, when a website is connected, the profiles that site offers them up through: which photograph stands for each, the order of the rest, and the short and long description.",
+    "source": "local",
+    "tools": [
+      "enchir"
+    ],
+    "requires": {
+      "sources": [],
+      "documents": [],
+      "documents_any": [],
+      "fields": [],
+      "archetypes": []
+    },
+    "writes": [],
+    "icon": "enchir",
+    "hub_tool": "enchir",
+    "app_sandbox": null,
+    "port_declarations": [
+      {
+        "port_id": "site_hosting",
+        "why": "the client's own site: which profiles it allocates, the one edit that arranges and describes a project on it, and the upload that adds a photograph to one. Reading is `page.list` \u2014 the same disclosure PIM's Design tab makes \u2014 the edit is fenced to the profile's own gallery, and the upload to the site's own pool",
+        "writes": [],
+        "calls": [],
+        "operations": [
+          "page.list",
+          "profile.edit",
+          "asset.upload",
+          "project.export"
+        ]
+      }
+    ],
+    "scoped_features": [],
+    "port_fills": [],
+    "publishable": true,
+    "digest": "sha256:179181be9dd35b64cd77b874ac3e92f9fc1902c2085e97555018bb3fdd3f976f"
+  }
+}
