@@ -1,0 +1,72 @@
+{
+  "schema": "micyte.gadget.declaration.v1",
+  "what_this_is": "This file ENABLES tools; it never adds code. Every tool named here is already in the MiCyte package your instance runs \u2014 installing from this declaration shows those tools and creates the blank documents they need. It cannot introduce a tool your build does not have, and it grants nothing: showing a tool is not permitting it, and what a tool may write is decided by your instance's own grants, which deny by default.",
+  "how_to_verify": "`digest` is sha256 over this declaration canonically serialized, excluding version, label, summary, icon and publishable \u2014 the same value micyte.tools._packages_manifest.declaration_digest computes, which is what an instance compares when it pulls the same declaration over GET /__mss/public/packages. A declaration whose digest does not match the one your instance computes is not the declaration this build published.",
+  "publisher": "micyte.com",
+  "micyte_version": "0.6.0",
+  "generated_at": "2026-10-19T17:06:23Z",
+  "digest": "sha256:015c9e3a83c67feefc46e5dde6c768be9500a213e016af13344ea1e67eb83a70",
+  "package": {
+    "package_id": "director",
+    "version": "1.0.0",
+    "label": "Director",
+    "summary": "The instances this host established, each one's profile in the registry, a way to establish another, and the entity table. For an instance that hosts others; it holds the registrar's legal-entity document.",
+    "source": "local",
+    "tools": [
+      "director",
+      "profile_admin_edit",
+      "farm_onboarding",
+      "entity_profile_table"
+    ],
+    "requires": {
+      "sources": [],
+      "documents": [
+        {
+          "name": "legal_entity",
+          "archetype": "legal_entity_profile",
+          "why": "the network directory this tool browses or edits",
+          "archetype_hash": "53ccab4bc1810aeccf71a283387b66452e710e26c4c7350ce26b9a79c65462fe"
+        }
+      ],
+      "documents_any": [],
+      "fields": [],
+      "archetypes": []
+    },
+    "writes": [
+      {
+        "document_kind": "registrar_profile",
+        "action": "save_profile_entry",
+        "sandbox_id": ""
+      },
+      {
+        "document_kind": "registrar_event",
+        "action": "create_event",
+        "sandbox_id": ""
+      },
+      {
+        "document_kind": "registrar_event",
+        "action": "save_event",
+        "sandbox_id": ""
+      },
+      {
+        "document_kind": "registrar_event",
+        "action": "delete_event",
+        "sandbox_id": ""
+      },
+      {
+        "document_kind": "farm",
+        "action": "create_farm",
+        "sandbox_id": ""
+      }
+    ],
+    "icon": "director",
+    "hub_tool": "director",
+    "app_sandbox": null,
+    "port_declarations": [],
+    "scoped_features": [],
+    "port_fills": [],
+    "publishable": true,
+    "descends_from": "enchir",
+    "digest": "sha256:015c9e3a83c67feefc46e5dde6c768be9500a213e016af13344ea1e67eb83a70"
+  }
+}
