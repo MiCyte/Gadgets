@@ -1,7 +1,7 @@
 {
   "schema": "micyte.packages.manifest.v1",
   "publisher": "micyte.com",
-  "build": "gadgets-462d07597978aaaf",
+  "build": "gadgets-0a40109b6394e1c7",
   "micyte_version": "0.6.0",
   "packages": [
     {
@@ -496,7 +496,7 @@
     },
     {
       "package_id": "pim",
-      "version": "0.3.0",
+      "version": "0.4.0",
       "label": "PIM",
       "summary": "The client's own record of their provider-service relationship, held as datum documents in an isolated sandbox and fed through the ports their own service key permits. Home says what the sandbox keeps and what the client pays; Authoring and Design are their site and the writing published to it; Analytics, Email, Resources, Storage, Payment and Domain each light when the seam that feeds them is bound and say why when it is not.",
       "source": "local",
@@ -538,7 +538,8 @@
             "alias.list",
             "forwarding.set",
             "identity.verify_request",
-            "identity.remind"
+            "identity.remind",
+            "message.forward"
           ]
         },
         {
@@ -561,7 +562,7 @@
       "scoped_features": [],
       "port_fills": [],
       "publishable": true,
-      "digest": "sha256:8e5c418885d410f9989d5701539fbee85f6515214d6a0c981ed2a0cbef7d007b"
+      "digest": "sha256:aab5e4485477733abcd79b5557d8acbf2e2b3e597851b7a928cea4977f564c49"
     },
     {
       "package_id": "quiar",
