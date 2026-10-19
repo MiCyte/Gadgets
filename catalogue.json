@@ -7,47 +7,6 @@
   },
   "gadgets": [
     {
-      "id": "almanac",
-      "kind": "app",
-      "label": "Almanac",
-      "version": "1.1.0",
-      "summary": "Your fields and plots as nodes of your own domain, planned on a map and a calendar; and every taxon the registry holds, searched, with its level, its lineage and the profile written for it. Farm and Plan appear where the sandbox holds a farm profile; Taxa appears everywhere.",
-      "icon": "almanac",
-      "micyte_version": "0.6.0",
-      "tools": [
-        "almanac",
-        "taxonomy_browser"
-      ],
-      "hub_tool": "almanac",
-      "requires": {
-        "sandbox": {
-          "needed": false,
-          "namespace": ""
-        },
-        "documents": [
-          "lcl_domain"
-        ],
-        "archetypes": [
-          "local_domain_log"
-        ],
-        "sources": [],
-        "fields": []
-      },
-      "ports": {
-        "declares": [],
-        "fills": [],
-        "services": []
-      },
-      "declaration": {
-        "path": "declarations/almanac-1.1.0.micytepkg.json",
-        "schema": "micyte.gadget.declaration.v1",
-        "bytes": 2320,
-        "sha256": "d69eeb4b504f6e1c7991ed71d1ef6e4469a234044e0bfeade4576ad98ecaa18b",
-        "digest": "sha256:3aaf18812a345fa0ee002235edc8bd2953635f9a04b6f26f9b03d629489a55c0"
-      },
-      "package": null
-    },
-    {
       "id": "brevat",
       "kind": "app",
       "label": "Brevat",
@@ -64,6 +23,7 @@
         "offer_ledger"
       ],
       "hub_tool": "brevat",
+      "descends_from": "",
       "requires": {
         "sandbox": {
           "needed": true,
@@ -106,6 +66,45 @@
       "package": null
     },
     {
+      "id": "enchir",
+      "kind": "app",
+      "label": "Enchir",
+      "version": "1.2.0",
+      "summary": "The projects, commissions and pieces of work an instance keeps, grouped by what they are — and, when a website is connected, the profiles that site offers them up through: which photograph stands for each, the order of the rest, and the short and long description.",
+      "icon": "enchir",
+      "micyte_version": "0.6.0",
+      "tools": [
+        "enchir"
+      ],
+      "hub_tool": "enchir",
+      "descends_from": "",
+      "requires": {
+        "sandbox": {
+          "needed": false,
+          "namespace": ""
+        },
+        "documents": [],
+        "archetypes": [],
+        "sources": [],
+        "fields": []
+      },
+      "ports": {
+        "declares": [
+          "site_hosting"
+        ],
+        "fills": [],
+        "services": []
+      },
+      "declaration": {
+        "path": "declarations/enchir-1.2.0.micytepkg.json",
+        "schema": "micyte.gadget.declaration.v1",
+        "bytes": 2591,
+        "sha256": "adeff2806a1fe41cd8b7f3d2c387d21b43d92af0548760123c288589acb9ba8b",
+        "digest": "sha256:179181be9dd35b64cd77b874ac3e92f9fc1902c2085e97555018bb3fdd3f976f"
+      },
+      "package": null
+    },
+    {
       "id": "director",
       "kind": "app",
       "label": "Director",
@@ -120,6 +119,7 @@
         "entity_profile_table"
       ],
       "hub_tool": "director",
+      "descends_from": "enchir",
       "requires": {
         "sandbox": {
           "needed": false,
@@ -149,44 +149,6 @@
       "package": null
     },
     {
-      "id": "enchir",
-      "kind": "app",
-      "label": "Enchir",
-      "version": "1.2.0",
-      "summary": "The projects, commissions and pieces of work an instance keeps, grouped by what they are — and, when a website is connected, the profiles that site offers them up through: which photograph stands for each, the order of the rest, and the short and long description.",
-      "icon": "enchir",
-      "micyte_version": "0.6.0",
-      "tools": [
-        "enchir"
-      ],
-      "hub_tool": "enchir",
-      "requires": {
-        "sandbox": {
-          "needed": false,
-          "namespace": ""
-        },
-        "documents": [],
-        "archetypes": [],
-        "sources": [],
-        "fields": []
-      },
-      "ports": {
-        "declares": [
-          "site_hosting"
-        ],
-        "fills": [],
-        "services": []
-      },
-      "declaration": {
-        "path": "declarations/enchir-1.2.0.micytepkg.json",
-        "schema": "micyte.gadget.declaration.v1",
-        "bytes": 2591,
-        "sha256": "adeff2806a1fe41cd8b7f3d2c387d21b43d92af0548760123c288589acb9ba8b",
-        "digest": "sha256:179181be9dd35b64cd77b874ac3e92f9fc1902c2085e97555018bb3fdd3f976f"
-      },
-      "package": null
-    },
-    {
       "id": "oveure",
       "kind": "app",
       "label": "Oveure",
@@ -199,6 +161,7 @@
         "lcl_editor"
       ],
       "hub_tool": "oveure",
+      "descends_from": "",
       "requires": {
         "sandbox": {
           "needed": true,
@@ -235,6 +198,48 @@
       "package": null
     },
     {
+      "id": "almanac",
+      "kind": "app",
+      "label": "Almanac",
+      "version": "1.1.0",
+      "summary": "Your fields and plots as nodes of your own domain, planned on a map and a calendar; and every taxon the registry holds, searched, with its level, its lineage and the profile written for it. Farm and Plan appear where the sandbox holds a farm profile; Taxa appears everywhere.",
+      "icon": "almanac",
+      "micyte_version": "0.6.0",
+      "tools": [
+        "almanac",
+        "taxonomy_browser"
+      ],
+      "hub_tool": "almanac",
+      "descends_from": "oveure",
+      "requires": {
+        "sandbox": {
+          "needed": false,
+          "namespace": ""
+        },
+        "documents": [
+          "lcl_domain"
+        ],
+        "archetypes": [
+          "local_domain_log"
+        ],
+        "sources": [],
+        "fields": []
+      },
+      "ports": {
+        "declares": [],
+        "fills": [],
+        "services": []
+      },
+      "declaration": {
+        "path": "declarations/almanac-1.1.0.micytepkg.json",
+        "schema": "micyte.gadget.declaration.v1",
+        "bytes": 2320,
+        "sha256": "d69eeb4b504f6e1c7991ed71d1ef6e4469a234044e0bfeade4576ad98ecaa18b",
+        "digest": "sha256:3aaf18812a345fa0ee002235edc8bd2953635f9a04b6f26f9b03d629489a55c0"
+      },
+      "package": null
+    },
+    {
       "id": "pim",
       "kind": "app",
       "label": "PIM",
@@ -247,6 +252,7 @@
         "pim_design"
       ],
       "hub_tool": "pim_overview",
+      "descends_from": "",
       "requires": {
         "sandbox": {
           "needed": true,
@@ -295,6 +301,7 @@
         "calendar"
       ],
       "hub_tool": "quiar",
+      "descends_from": "",
       "requires": {
         "sandbox": {
           "needed": true,
@@ -351,6 +358,7 @@
       "micyte_version": "0.6.0",
       "tools": [],
       "hub_tool": "",
+      "descends_from": "",
       "requires": {
         "sandbox": {
           "needed": false,
@@ -389,6 +397,7 @@
       "micyte_version": "0.6.0",
       "tools": [],
       "hub_tool": "",
+      "descends_from": "",
       "requires": {
         "sandbox": {
           "needed": false,
