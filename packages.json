@@ -1,7 +1,7 @@
 {
   "schema": "micyte.packages.manifest.v1",
   "publisher": "micyte.com",
-  "build": "gadgets-0a40109b6394e1c7",
+  "build": "gadgets-48145e5584e9350c",
   "micyte_version": "0.6.0",
   "packages": [
     {
@@ -198,7 +198,7 @@
     },
     {
       "package_id": "fnd_service",
-      "version": "1.7.0",
+      "version": "1.8.0",
       "label": "FND Service",
       "summary": "Connect this instance to what FND already runs for it: the mail — read what arrived, administer the addresses on its domains, answer from one of them, or hand a message to a person — and the served site, where pages can be read and edited, writing published, sent to the people who subscribed, or taken down, assets uploaded, and the month's traffic counted. FND holds the accounts; this instance holds no credential.",
       "source": "local",
@@ -254,6 +254,10 @@
             {
               "operation": "message.forward",
               "why": "Hand a message to an address configured in advance. Separate from sending because handing work to the owner and writing to anyone are different permissions."
+            },
+            {
+              "operation": "held.deliver",
+              "why": "Deliver a message the forwarder withheld to the inbox its own mailbox already forwards to. Narrower than forwarding: only a held message, only to the address's own destination, only as the mailbox it was for. The one way a client's app releases its own held mail (2026-10-19)."
             },
             {
               "operation": "identity.verify_request",
@@ -319,7 +323,7 @@
         }
       ],
       "publishable": true,
-      "digest": "sha256:07d21fa7aca379e783af8d82465ad35b7abece8ff60caad5f337fd5d57a69424"
+      "digest": "sha256:f16a2909d85d26c07d553d4d5c43d2ef58e33baa3db4ee41f0468e1be3a85450"
     },
     {
       "package_id": "oveure",
@@ -539,7 +543,7 @@
             "forwarding.set",
             "identity.verify_request",
             "identity.remind",
-            "message.forward"
+            "held.deliver"
           ]
         },
         {
@@ -562,7 +566,7 @@
       "scoped_features": [],
       "port_fills": [],
       "publishable": true,
-      "digest": "sha256:aab5e4485477733abcd79b5557d8acbf2e2b3e597851b7a928cea4977f564c49"
+      "digest": "sha256:9362a3e0d4c80ceadbecaafc7597749caea1c0068319536880d28118e83762c1"
     },
     {
       "package_id": "quiar",
