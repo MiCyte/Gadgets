@@ -4,11 +4,11 @@
   "how_to_verify": "`digest` is sha256 over this declaration canonically serialized, excluding version, label, summary, icon and publishable \u2014 the same value micyte.tools._packages_manifest.declaration_digest computes, which is what an instance compares when it pulls the same declaration over GET /__mss/public/packages. A declaration whose digest does not match the one your instance computes is not the declaration this build published.",
   "publisher": "micyte.com",
   "micyte_version": "0.6.0",
-  "generated_at": "2026-10-18T02:08:44Z",
-  "digest": "sha256:8e5c418885d410f9989d5701539fbee85f6515214d6a0c981ed2a0cbef7d007b",
+  "generated_at": "2026-10-19T12:13:47Z",
+  "digest": "sha256:aab5e4485477733abcd79b5557d8acbf2e2b3e597851b7a928cea4977f564c49",
   "package": {
     "package_id": "pim",
-    "version": "0.3.0",
+    "version": "0.4.0",
     "label": "PIM",
     "summary": "The client's own record of their provider-service relationship, held as datum documents in an isolated sandbox and fed through the ports their own service key permits. Home says what the sandbox keeps and what the client pays; Authoring and Design are their site and the writing published to it; Analytics, Email, Resources, Storage, Payment and Domain each light when the seam that feeds them is bound and say why when it is not.",
     "source": "local",
@@ -50,7 +50,8 @@
           "alias.list",
           "forwarding.set",
           "identity.verify_request",
-          "identity.remind"
+          "identity.remind",
+          "message.forward"
         ]
       },
       {
@@ -73,6 +74,6 @@
     "scoped_features": [],
     "port_fills": [],
     "publishable": true,
-    "digest": "sha256:8e5c418885d410f9989d5701539fbee85f6515214d6a0c981ed2a0cbef7d007b"
+    "digest": "sha256:aab5e4485477733abcd79b5557d8acbf2e2b3e597851b7a928cea4977f564c49"
   }
 }
