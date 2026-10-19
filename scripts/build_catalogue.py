@@ -80,6 +80,10 @@ def entry(path: Path) -> dict:
         "micyte_version": doc.get("micyte_version") or "",
         "tools": tools,
         "hub_tool": pkg.get("hub_tool") or "",
+        # The core this gadget is a descendant of, or "". A specific application is kept as
+        # a descendant of a core one (operator, 2026-10-19), and the catalogue has to carry
+        # that or no reader of it can file them that way.
+        "descends_from": pkg.get("descends_from") or "",
         "requires": {
             "sandbox": {"needed": sandbox is not None,
                         "namespace": str((sandbox or {}).get("namespace") or "")},
@@ -117,7 +121,15 @@ def catalogue() -> dict:
     if dupes:
         raise SystemExit(f"REFUSED: more than one version declared for {', '.join(dupes)}; "
                          "the catalogue lists one version per gadget")
-    gadgets.sort(key=lambda g: (g["kind"] != "app", g["id"]))
+    known = {g["id"] for g in gadgets}
+    stray = sorted(g["id"] for g in gadgets if g["descends_from"] and g["descends_from"] not in known)
+    if stray:
+        raise SystemExit(f"REFUSED: {', '.join(stray)} descend(s) from a gadget this catalogue "
+                         "does not list; publish the core first")
+    # Apps before extensions; a descendant directly after the core it descends from, so a
+    # reader of the file alone sees the family without having to reassemble it.
+    gadgets.sort(key=lambda g: (g["kind"] != "app", g["descends_from"] or g["id"],
+                                bool(g["descends_from"]), g["id"]))
     built = max((g["micyte_version"] for g in gadgets), key=_version_key)
     return {
         "schema": SCHEMA,
