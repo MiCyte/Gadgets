@@ -7,6 +7,47 @@
   },
   "gadgets": [
     {
+      "id": "almanac",
+      "kind": "app",
+      "label": "Almanac",
+      "version": "1.1.0",
+      "summary": "Your fields and plots as nodes of your own domain, planned on a map and a calendar; and every taxon the registry holds, searched, with its level, its lineage and the profile written for it. Farm and Plan appear where the sandbox holds a farm profile; Taxa appears everywhere.",
+      "icon": "almanac",
+      "micyte_version": "0.6.0",
+      "tools": [
+        "almanac",
+        "taxonomy_browser"
+      ],
+      "hub_tool": "almanac",
+      "requires": {
+        "sandbox": {
+          "needed": false,
+          "namespace": ""
+        },
+        "documents": [
+          "lcl_domain"
+        ],
+        "archetypes": [
+          "local_domain_log"
+        ],
+        "sources": [],
+        "fields": []
+      },
+      "ports": {
+        "declares": [],
+        "fills": [],
+        "services": []
+      },
+      "declaration": {
+        "path": "declarations/almanac-1.1.0.micytepkg.json",
+        "schema": "micyte.gadget.declaration.v1",
+        "bytes": 2320,
+        "sha256": "d69eeb4b504f6e1c7991ed71d1ef6e4469a234044e0bfeade4576ad98ecaa18b",
+        "digest": "sha256:3aaf18812a345fa0ee002235edc8bd2953635f9a04b6f26f9b03d629489a55c0"
+      },
+      "package": null
+    },
+    {
       "id": "brevat",
       "kind": "app",
       "label": "Brevat",
@@ -58,9 +99,52 @@
       "declaration": {
         "path": "declarations/brevat-1.3.0.micytepkg.json",
         "schema": "micyte.gadget.declaration.v1",
-        "bytes": 5012,
-        "sha256": "950e04ff12da9a16f039cc44955470e520ec320f5b2fd48853e5761a8c63073d",
+        "bytes": 5037,
+        "sha256": "7cac9aa621e1b65174cc77c79e8552481026d15e6bd66d15475bcac537b7091e",
         "digest": "sha256:5c3be99bdb9fb8b26f0e15632c7dbdec636ef2786f8b1ce41460e6a56fa7af26"
+      },
+      "package": null
+    },
+    {
+      "id": "director",
+      "kind": "app",
+      "label": "Director",
+      "version": "1.0.0",
+      "summary": "The instances this host established, each one's profile in the registry, a way to establish another, and the entity table. For an instance that hosts others; it holds the registrar's legal-entity document.",
+      "icon": "director",
+      "micyte_version": "0.6.0",
+      "tools": [
+        "director",
+        "profile_admin_edit",
+        "farm_onboarding",
+        "entity_profile_table"
+      ],
+      "hub_tool": "director",
+      "requires": {
+        "sandbox": {
+          "needed": false,
+          "namespace": ""
+        },
+        "documents": [
+          "legal_entity"
+        ],
+        "archetypes": [
+          "legal_entity_profile"
+        ],
+        "sources": [],
+        "fields": []
+      },
+      "ports": {
+        "declares": [],
+        "fills": [],
+        "services": []
+      },
+      "declaration": {
+        "path": "declarations/director-1.0.0.micytepkg.json",
+        "schema": "micyte.gadget.declaration.v1",
+        "bytes": 2920,
+        "sha256": "88e8400f166385c6cb3e36899528fa154fb0b99576455e63f63b4872fa287e00",
+        "digest": "sha256:015c9e3a83c67feefc46e5dde6c768be9500a213e016af13344ea1e67eb83a70"
       },
       "package": null
     },
@@ -96,8 +180,8 @@
       "declaration": {
         "path": "declarations/enchir-1.2.0.micytepkg.json",
         "schema": "micyte.gadget.declaration.v1",
-        "bytes": 2566,
-        "sha256": "c7eea471ff406dfc8379abdd0fdee1086722a621478478c7ed1139977545aa04",
+        "bytes": 2591,
+        "sha256": "adeff2806a1fe41cd8b7f3d2c387d21b43d92af0548760123c288589acb9ba8b",
         "digest": "sha256:179181be9dd35b64cd77b874ac3e92f9fc1902c2085e97555018bb3fdd3f976f"
       },
       "package": null
@@ -144,8 +228,8 @@
       "declaration": {
         "path": "declarations/oveure-1.3.0.micytepkg.json",
         "schema": "micyte.gadget.declaration.v1",
-        "bytes": 6110,
-        "sha256": "ff269fe2d9a63ed7cc3e6142d5ba415e0ad8465afb03c60dfec21a5b387c34b5",
+        "bytes": 6135,
+        "sha256": "62e14911351c659d4254e6d5b195b7e1f85bbf7487fc67b4d704b2ba801ec09e",
         "digest": "sha256:1b0958316b89300d2192c2167af23ed55a21ee436695fb19cdb29584f488ec81"
       },
       "package": null
@@ -188,8 +272,8 @@
       "declaration": {
         "path": "declarations/pim-0.4.0.micytepkg.json",
         "schema": "micyte.gadget.declaration.v1",
-        "bytes": 4007,
-        "sha256": "468b4f72d700c83e2036aa076fd5f90ba9058bdd0ec51248e46b54f51adff166",
+        "bytes": 4032,
+        "sha256": "cb8aec18255798943dbc2d3c90661d253c0348191242dffe585bbca0e727213a",
         "digest": "sha256:9362a3e0d4c80ceadbecaafc7597749caea1c0068319536880d28118e83762c1"
       },
       "package": null
@@ -251,8 +335,8 @@
       "declaration": {
         "path": "declarations/quiar-2.4.0.micytepkg.json",
         "schema": "micyte.gadget.declaration.v1",
-        "bytes": 4971,
-        "sha256": "3df3b01d8a9715884498ffa11fa783dfad3c8f50f1c155a05e389c1f062413be",
+        "bytes": 4996,
+        "sha256": "643a49ae14d45587bf3434d0555defd18a927263d4422f0f4bf006fdccbbf462",
         "digest": "sha256:431edb00eebd6f64c75d2413556745dc3199004b7eddad59b216e5c3eb3aca5c"
       },
       "package": null
@@ -289,8 +373,8 @@
       "declaration": {
         "path": "declarations/claude-1.0.0.micytepkg.json",
         "schema": "micyte.gadget.declaration.v1",
-        "bytes": 2352,
-        "sha256": "292b2232053d5e5ca1a8f5a4b9f874b94930806bb5c40b275246a43c7ca0f16a",
+        "bytes": 2377,
+        "sha256": "550a8c5bd7d89427f6c5c986fae5a6ce9ad9b732df399677571d0dc39802fa0e",
         "digest": "sha256:ae5b2a30cc01a822305592fcc62fb973c24d46a52b3e2c3a35f44011e8db0e84"
       },
       "package": null
@@ -328,8 +412,8 @@
       "declaration": {
         "path": "declarations/fnd_service-1.8.0.micytepkg.json",
         "schema": "micyte.gadget.declaration.v1",
-        "bytes": 9593,
-        "sha256": "93dbd91944011c36f38e44b93d9bfd1b4946313089c2f49bbce76e6597a34b73",
+        "bytes": 9618,
+        "sha256": "901609200c98d09eaa86c5bb30c229658100153a20dd71125fca9fa3db07ec8f",
         "digest": "sha256:f16a2909d85d26c07d553d4d5c43d2ef58e33baa3db4ee41f0468e1be3a85450"
       },
       "package": null

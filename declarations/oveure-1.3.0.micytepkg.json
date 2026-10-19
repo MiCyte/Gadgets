@@ -4,7 +4,7 @@
   "how_to_verify": "`digest` is sha256 over this declaration canonically serialized, excluding version, label, summary, icon and publishable \u2014 the same value micyte.tools._packages_manifest.declaration_digest computes, which is what an instance compares when it pulls the same declaration over GET /__mss/public/packages. A declaration whose digest does not match the one your instance computes is not the declaration this build published.",
   "publisher": "micyte.com",
   "micyte_version": "0.6.0",
-  "generated_at": "2026-10-18T02:08:44Z",
+  "generated_at": "2026-10-19T17:06:23Z",
   "digest": "sha256:1b0958316b89300d2192c2167af23ed55a21ee436695fb19cdb29584f488ec81",
   "package": {
     "package_id": "oveure",
@@ -177,6 +177,7 @@
     ],
     "port_fills": [],
     "publishable": true,
+    "descends_from": "",
     "digest": "sha256:1b0958316b89300d2192c2167af23ed55a21ee436695fb19cdb29584f488ec81"
   }
 }

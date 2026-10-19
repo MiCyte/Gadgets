@@ -1,9 +1,44 @@
 {
   "schema": "micyte.packages.manifest.v1",
   "publisher": "micyte.com",
-  "build": "gadgets-48145e5584e9350c",
+  "build": "gadgets-62fef84833fed3c9",
   "micyte_version": "0.6.0",
   "packages": [
+    {
+      "package_id": "almanac",
+      "version": "1.1.0",
+      "label": "Almanac",
+      "summary": "Your fields and plots as nodes of your own domain, planned on a map and a calendar; and every taxon the registry holds, searched, with its level, its lineage and the profile written for it. Farm and Plan appear where the sandbox holds a farm profile; Taxa appears everywhere.",
+      "source": "local",
+      "tools": [
+        "almanac",
+        "taxonomy_browser"
+      ],
+      "requires": {
+        "sources": [],
+        "documents": [
+          {
+            "name": "lcl_domain",
+            "archetype": "local_domain_log",
+            "why": "the domain the fields and plots are nodes of",
+            "archetype_hash": "4e408fb840bf74ddd25e53e877f28219a6cf13108a3595d8827080341e141ca1"
+          }
+        ],
+        "documents_any": [],
+        "fields": [],
+        "archetypes": []
+      },
+      "writes": [],
+      "icon": "almanac",
+      "hub_tool": "almanac",
+      "app_sandbox": null,
+      "port_declarations": [],
+      "scoped_features": [],
+      "port_fills": [],
+      "publishable": true,
+      "descends_from": "oveure",
+      "digest": "sha256:3aaf18812a345fa0ee002235edc8bd2953635f9a04b6f26f9b03d629489a55c0"
+    },
     {
       "package_id": "brevat",
       "version": "1.3.0",
@@ -118,6 +153,7 @@
       "scoped_features": [],
       "port_fills": [],
       "publishable": true,
+      "descends_from": "",
       "digest": "sha256:5c3be99bdb9fb8b26f0e15632c7dbdec636ef2786f8b1ce41460e6a56fa7af26"
     },
     {
@@ -155,7 +191,71 @@
         }
       ],
       "publishable": true,
+      "descends_from": "",
       "digest": "sha256:ae5b2a30cc01a822305592fcc62fb973c24d46a52b3e2c3a35f44011e8db0e84"
+    },
+    {
+      "package_id": "director",
+      "version": "1.0.0",
+      "label": "Director",
+      "summary": "The instances this host established, each one's profile in the registry, a way to establish another, and the entity table. For an instance that hosts others; it holds the registrar's legal-entity document.",
+      "source": "local",
+      "tools": [
+        "director",
+        "profile_admin_edit",
+        "farm_onboarding",
+        "entity_profile_table"
+      ],
+      "requires": {
+        "sources": [],
+        "documents": [
+          {
+            "name": "legal_entity",
+            "archetype": "legal_entity_profile",
+            "why": "the network directory this tool browses or edits",
+            "archetype_hash": "53ccab4bc1810aeccf71a283387b66452e710e26c4c7350ce26b9a79c65462fe"
+          }
+        ],
+        "documents_any": [],
+        "fields": [],
+        "archetypes": []
+      },
+      "writes": [
+        {
+          "document_kind": "registrar_profile",
+          "action": "save_profile_entry",
+          "sandbox_id": ""
+        },
+        {
+          "document_kind": "registrar_event",
+          "action": "create_event",
+          "sandbox_id": ""
+        },
+        {
+          "document_kind": "registrar_event",
+          "action": "save_event",
+          "sandbox_id": ""
+        },
+        {
+          "document_kind": "registrar_event",
+          "action": "delete_event",
+          "sandbox_id": ""
+        },
+        {
+          "document_kind": "farm",
+          "action": "create_farm",
+          "sandbox_id": ""
+        }
+      ],
+      "icon": "director",
+      "hub_tool": "director",
+      "app_sandbox": null,
+      "port_declarations": [],
+      "scoped_features": [],
+      "port_fills": [],
+      "publishable": true,
+      "descends_from": "enchir",
+      "digest": "sha256:015c9e3a83c67feefc46e5dde6c768be9500a213e016af13344ea1e67eb83a70"
     },
     {
       "package_id": "enchir",
@@ -194,6 +294,7 @@
       "scoped_features": [],
       "port_fills": [],
       "publishable": true,
+      "descends_from": "",
       "digest": "sha256:179181be9dd35b64cd77b874ac3e92f9fc1902c2085e97555018bb3fdd3f976f"
     },
     {
@@ -323,6 +424,7 @@
         }
       ],
       "publishable": true,
+      "descends_from": "",
       "digest": "sha256:f16a2909d85d26c07d553d4d5c43d2ef58e33baa3db4ee41f0468e1be3a85450"
     },
     {
@@ -496,6 +598,7 @@
       ],
       "port_fills": [],
       "publishable": true,
+      "descends_from": "",
       "digest": "sha256:1b0958316b89300d2192c2167af23ed55a21ee436695fb19cdb29584f488ec81"
     },
     {
@@ -566,6 +669,7 @@
       "scoped_features": [],
       "port_fills": [],
       "publishable": true,
+      "descends_from": "",
       "digest": "sha256:9362a3e0d4c80ceadbecaafc7597749caea1c0068319536880d28118e83762c1"
     },
     {
@@ -683,6 +787,7 @@
       ],
       "port_fills": [],
       "publishable": true,
+      "descends_from": "",
       "digest": "sha256:431edb00eebd6f64c75d2413556745dc3199004b7eddad59b216e5c3eb3aca5c"
     }
   ]
