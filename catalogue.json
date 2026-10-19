@@ -188,9 +188,9 @@
       "declaration": {
         "path": "declarations/pim-0.4.0.micytepkg.json",
         "schema": "micyte.gadget.declaration.v1",
-        "bytes": 4010,
-        "sha256": "af1cff0939aef8b584f00ac314447dc0bad0b4148edd75b943f7dc10d7bdd5ce",
-        "digest": "sha256:aab5e4485477733abcd79b5557d8acbf2e2b3e597851b7a928cea4977f564c49"
+        "bytes": 4007,
+        "sha256": "468b4f72d700c83e2036aa076fd5f90ba9058bdd0ec51248e46b54f51adff166",
+        "digest": "sha256:9362a3e0d4c80ceadbecaafc7597749caea1c0068319536880d28118e83762c1"
       },
       "package": null
     },
@@ -299,7 +299,7 @@
       "id": "fnd_service",
       "kind": "extension",
       "label": "FND Service",
-      "version": "1.7.0",
+      "version": "1.8.0",
       "summary": "Connect this instance to what FND already runs for it: the mail — read what arrived, administer the addresses on its domains, answer from one of them, or hand a message to a person — and the served site, where pages can be read and edited, writing published, sent to the people who subscribed, or taken down, assets uploaded, and the month's traffic counted. FND holds the accounts; this instance holds no credential.",
       "icon": "fnd_service",
       "micyte_version": "0.6.0",
@@ -326,11 +326,11 @@
         ]
       },
       "declaration": {
-        "path": "declarations/fnd_service-1.7.0.micytepkg.json",
+        "path": "declarations/fnd_service-1.8.0.micytepkg.json",
         "schema": "micyte.gadget.declaration.v1",
-        "bytes": 9229,
-        "sha256": "3bf89bcfc6bf10ef0253b438b0f7d5a1bc6c6187e35b36b2272d85170d53f2b6",
-        "digest": "sha256:07d21fa7aca379e783af8d82465ad35b7abece8ff60caad5f337fd5d57a69424"
+        "bytes": 9593,
+        "sha256": "93dbd91944011c36f38e44b93d9bfd1b4946313089c2f49bbce76e6597a34b73",
+        "digest": "sha256:f16a2909d85d26c07d553d4d5c43d2ef58e33baa3db4ee41f0468e1be3a85450"
       },
       "package": null
     }

@@ -4,11 +4,11 @@
   "how_to_verify": "`digest` is sha256 over this declaration canonically serialized, excluding version, label, summary, icon and publishable \u2014 the same value micyte.tools._packages_manifest.declaration_digest computes, which is what an instance compares when it pulls the same declaration over GET /__mss/public/packages. A declaration whose digest does not match the one your instance computes is not the declaration this build published.",
   "publisher": "micyte.com",
   "micyte_version": "0.6.0",
-  "generated_at": "2026-10-18T02:08:44Z",
-  "digest": "sha256:07d21fa7aca379e783af8d82465ad35b7abece8ff60caad5f337fd5d57a69424",
+  "generated_at": "2026-10-19T13:27:57Z",
+  "digest": "sha256:f16a2909d85d26c07d553d4d5c43d2ef58e33baa3db4ee41f0468e1be3a85450",
   "package": {
     "package_id": "fnd_service",
-    "version": "1.7.0",
+    "version": "1.8.0",
     "label": "FND Service",
     "summary": "Connect this instance to what FND already runs for it: the mail \u2014 read what arrived, administer the addresses on its domains, answer from one of them, or hand a message to a person \u2014 and the served site, where pages can be read and edited, writing published, sent to the people who subscribed, or taken down, assets uploaded, and the month's traffic counted. FND holds the accounts; this instance holds no credential.",
     "source": "local",
@@ -64,6 +64,10 @@
           {
             "operation": "message.forward",
             "why": "Hand a message to an address configured in advance. Separate from sending because handing work to the owner and writing to anyone are different permissions."
+          },
+          {
+            "operation": "held.deliver",
+            "why": "Deliver a message the forwarder withheld to the inbox its own mailbox already forwards to. Narrower than forwarding: only a held message, only to the address's own destination, only as the mailbox it was for. The one way a client's app releases its own held mail (2026-10-19)."
           },
           {
             "operation": "identity.verify_request",
@@ -129,6 +133,6 @@
       }
     ],
     "publishable": true,
-    "digest": "sha256:07d21fa7aca379e783af8d82465ad35b7abece8ff60caad5f337fd5d57a69424"
+    "digest": "sha256:f16a2909d85d26c07d553d4d5c43d2ef58e33baa3db4ee41f0468e1be3a85450"
   }
 }
