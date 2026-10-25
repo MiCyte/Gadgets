@@ -426,6 +426,45 @@
         "digest": "sha256:f16a2909d85d26c07d553d4d5c43d2ef58e33baa3db4ee41f0468e1be3a85450"
       },
       "package": null
+    },
+    {
+      "id": "published_catalogue",
+      "kind": "extension",
+      "label": "Published catalogue",
+      "version": "1.0.0",
+      "summary": "Read the package catalogue a publisher serves — micyte.com's, or a repository's — instead of only what this build happens to ship. Pull-only: the instance asks, and nothing is ever pushed to it.",
+      "icon": "marketplace",
+      "micyte_version": "0.6.0",
+      "tools": [],
+      "hub_tool": "",
+      "descends_from": "",
+      "requires": {
+        "sandbox": {
+          "needed": false,
+          "namespace": ""
+        },
+        "documents": [],
+        "archetypes": [],
+        "sources": [],
+        "fields": []
+      },
+      "ports": {
+        "declares": [],
+        "fills": [
+          "package_source"
+        ],
+        "services": [
+          "published_catalogue"
+        ]
+      },
+      "declaration": {
+        "path": "declarations/published_catalogue-1.0.0.micytepkg.json",
+        "schema": "micyte.gadget.declaration.v1",
+        "bytes": 2598,
+        "sha256": "53e758a1f66272f0319e2606283a554b069b046a2db7ffe7ef2249a956f77076",
+        "digest": "sha256:e489cd674bfbf1ec3d220a5c01d3b89f988a5e95e64bdd564f135088c12d9478"
+      },
+      "package": null
     }
   ]
 }

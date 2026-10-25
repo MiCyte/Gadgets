@@ -1,7 +1,7 @@
 {
   "schema": "micyte.packages.manifest.v1",
   "publisher": "micyte.com",
-  "build": "gadgets-62fef84833fed3c9",
+  "build": "gadgets-e6cca6ce50eff221",
   "micyte_version": "0.6.0",
   "packages": [
     {
@@ -671,6 +671,44 @@
       "publishable": true,
       "descends_from": "",
       "digest": "sha256:9362a3e0d4c80ceadbecaafc7597749caea1c0068319536880d28118e83762c1"
+    },
+    {
+      "package_id": "published_catalogue",
+      "version": "1.0.0",
+      "label": "Published catalogue",
+      "summary": "Read the package catalogue a publisher serves — micyte.com's, or a repository's — instead of only what this build happens to ship. Pull-only: the instance asks, and nothing is ever pushed to it.",
+      "source": "local",
+      "tools": [],
+      "requires": {
+        "sources": [],
+        "documents": [],
+        "documents_any": [],
+        "fields": [],
+        "archetypes": []
+      },
+      "writes": [],
+      "icon": "marketplace",
+      "hub_tool": "",
+      "app_sandbox": null,
+      "port_declarations": [],
+      "scoped_features": [],
+      "port_fills": [
+        {
+          "port_id": "package_source",
+          "adapter_id": "fnd_app.packages.peripherals.packages.published_catalogue.PublishedCatalogueSource",
+          "service": "published_catalogue",
+          "why": "The instance reads what a publisher offers rather than only what it was built with. Selecting it connects nothing by itself: the pull refuses until a grant names it.",
+          "functions": [
+            {
+              "operation": "packages.pull",
+              "why": "Ask the publisher for its manifest. Discloses that this instance exists, which build it runs, and that it is looking for packages."
+            }
+          ]
+        }
+      ],
+      "publishable": true,
+      "descends_from": "",
+      "digest": "sha256:e489cd674bfbf1ec3d220a5c01d3b89f988a5e95e64bdd564f135088c12d9478"
     },
     {
       "package_id": "quiar",
