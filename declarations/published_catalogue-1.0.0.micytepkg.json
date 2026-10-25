@@ -1,0 +1,47 @@
+{
+  "schema": "micyte.gadget.declaration.v1",
+  "what_this_is": "This file ENABLES tools; it never adds code. Every tool named here is already in the MiCyte package your instance runs \u2014 installing from this declaration shows those tools and creates the blank documents they need. It cannot introduce a tool your build does not have, and it grants nothing: showing a tool is not permitting it, and what a tool may write is decided by your instance's own grants, which deny by default.",
+  "how_to_verify": "`digest` is sha256 over this declaration canonically serialized, excluding version, label, summary, icon and publishable \u2014 the same value micyte.tools._packages_manifest.declaration_digest computes, which is what an instance compares when it pulls the same declaration over GET /__mss/public/packages. A declaration whose digest does not match the one your instance computes is not the declaration this build published.",
+  "publisher": "micyte.com",
+  "micyte_version": "0.6.0",
+  "generated_at": "2026-10-25T03:53:19Z",
+  "digest": "sha256:e489cd674bfbf1ec3d220a5c01d3b89f988a5e95e64bdd564f135088c12d9478",
+  "package": {
+    "package_id": "published_catalogue",
+    "version": "1.0.0",
+    "label": "Published catalogue",
+    "summary": "Read the package catalogue a publisher serves \u2014 micyte.com's, or a repository's \u2014 instead of only what this build happens to ship. Pull-only: the instance asks, and nothing is ever pushed to it.",
+    "source": "local",
+    "tools": [],
+    "requires": {
+      "sources": [],
+      "documents": [],
+      "documents_any": [],
+      "fields": [],
+      "archetypes": []
+    },
+    "writes": [],
+    "icon": "marketplace",
+    "hub_tool": "",
+    "app_sandbox": null,
+    "port_declarations": [],
+    "scoped_features": [],
+    "port_fills": [
+      {
+        "port_id": "package_source",
+        "adapter_id": "fnd_app.packages.peripherals.packages.published_catalogue.PublishedCatalogueSource",
+        "service": "published_catalogue",
+        "why": "The instance reads what a publisher offers rather than only what it was built with. Selecting it connects nothing by itself: the pull refuses until a grant names it.",
+        "functions": [
+          {
+            "operation": "packages.pull",
+            "why": "Ask the publisher for its manifest. Discloses that this instance exists, which build it runs, and that it is looking for packages."
+          }
+        ]
+      }
+    ],
+    "publishable": true,
+    "descends_from": "",
+    "digest": "sha256:e489cd674bfbf1ec3d220a5c01d3b89f988a5e95e64bdd564f135088c12d9478"
+  }
+}
