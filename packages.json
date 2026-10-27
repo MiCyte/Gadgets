@@ -1,7 +1,7 @@
 {
   "schema": "micyte.packages.manifest.v1",
   "publisher": "micyte.com",
-  "build": "gadgets-e6cca6ce50eff221",
+  "build": "gadgets-d5743c3153e0ad07",
   "micyte_version": "0.6.0",
   "packages": [
     {
@@ -605,7 +605,7 @@
       "package_id": "pim",
       "version": "0.4.0",
       "label": "PIM",
-      "summary": "The client's own record of their provider-service relationship, held as datum documents in an isolated sandbox and fed through the ports their own service key permits. Home says what the sandbox keeps and what the client pays; Authoring and Design are their site and the writing published to it; Analytics, Email, Resources, Storage, Payment and Domain each light when the seam that feeds them is bound and say why when it is not.",
+      "summary": "The client's own record of their provider-service relationship, held as datum documents in an isolated sandbox and fed through the ports their own service key permits. Home says what the client pays and what their site and records occupy against the plan; Authoring and Design are their site and the writing published to it; Analytics, Email, Resources, Payment and Domain each light when the seam that feeds them is bound and say why when it is not.",
       "source": "local",
       "tools": [
         "pim_overview",
@@ -712,7 +712,7 @@
     },
     {
       "package_id": "quiar",
-      "version": "2.4.0",
+      "version": "2.5.0",
       "label": "Quiar – Freelancer",
       "summary": "Book work, group it into projects, keep the people you book it for, and see the week. Nothing in it is trade-specific: a job's kind is a node the instance mints for itself.",
       "source": "local",
@@ -743,7 +743,7 @@
             "name": "contacts",
             "archetype": "natural_entity_profile",
             "why": "the people it books work for",
-            "archetype_hash": "5dce150a6dccb5fc71dff1489e1f4f9bfd41fb68c3c449306157e08a490b5663"
+            "archetype_hash": "71ccdc41aa3a22dd7d5b73e9d9ffa49368521a074dfe17c9896eb48bfe22245d"
           },
           {
             "name": "lcl_domain",
@@ -826,7 +826,7 @@
       "port_fills": [],
       "publishable": true,
       "descends_from": "",
-      "digest": "sha256:431edb00eebd6f64c75d2413556745dc3199004b7eddad59b216e5c3eb3aca5c"
+      "digest": "sha256:969cf313c24ab816cbf657d272c5c710840d7db92694d086126599cddae93ef2"
     }
   ]
 }

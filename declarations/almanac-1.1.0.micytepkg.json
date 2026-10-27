@@ -4,7 +4,7 @@
   "how_to_verify": "`digest` is sha256 over this declaration canonically serialized, excluding version, label, summary, icon and publishable \u2014 the same value micyte.tools._packages_manifest.declaration_digest computes, which is what an instance compares when it pulls the same declaration over GET /__mss/public/packages. A declaration whose digest does not match the one your instance computes is not the declaration this build published.",
   "publisher": "micyte.com",
   "micyte_version": "0.6.0",
-  "generated_at": "2026-10-19T17:06:23Z",
+  "generated_at": "2026-10-27T18:15:49Z",
   "digest": "sha256:3aaf18812a345fa0ee002235edc8bd2953635f9a04b6f26f9b03d629489a55c0",
   "package": {
     "package_id": "almanac",
