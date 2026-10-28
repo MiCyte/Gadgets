@@ -4,11 +4,11 @@
   "how_to_verify": "`digest` is sha256 over this declaration canonically serialized, excluding version, label, summary, icon and publishable \u2014 the same value micyte.tools._packages_manifest.declaration_digest computes, which is what an instance compares when it pulls the same declaration over GET /__mss/public/packages. A declaration whose digest does not match the one your instance computes is not the declaration this build published.",
   "publisher": "micyte.com",
   "micyte_version": "0.6.0",
-  "generated_at": "2026-10-27T18:15:49Z",
-  "digest": "sha256:969cf313c24ab816cbf657d272c5c710840d7db92694d086126599cddae93ef2",
+  "generated_at": "2026-10-28T22:49:25Z",
+  "digest": "sha256:6e43b9ce5de64319c82bd15e279426a5534c4950b24a212a29aa48c453812f6f",
   "package": {
     "package_id": "quiar",
-    "version": "2.5.0",
+    "version": "2.6.0",
     "label": "Quiar \u2013 Freelancer",
     "summary": "Book work, group it into projects, keep the people you book it for, and see the week. Nothing in it is trade-specific: a job's kind is a node the instance mints for itself.",
     "source": "local",
@@ -97,6 +97,11 @@
         "document_kind": "contact",
         "action": "save_contact",
         "sandbox_id": ""
+      },
+      {
+        "document_kind": "contact",
+        "action": "request_contact_verification",
+        "sandbox_id": ""
       }
     ],
     "icon": "quiar",
@@ -122,6 +127,6 @@
     "port_fills": [],
     "publishable": true,
     "descends_from": "",
-    "digest": "sha256:969cf313c24ab816cbf657d272c5c710840d7db92694d086126599cddae93ef2"
+    "digest": "sha256:6e43b9ce5de64319c82bd15e279426a5534c4950b24a212a29aa48c453812f6f"
   }
 }

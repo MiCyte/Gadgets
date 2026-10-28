@@ -60,7 +60,7 @@
         "path": "declarations/brevat-1.3.0.micytepkg.json",
         "schema": "micyte.gadget.declaration.v1",
         "bytes": 5037,
-        "sha256": "c294001dfbd9a70eac3c7c78d65b1afec256e64e7a384741c8c8cb112bc8636e",
+        "sha256": "38797372829e5b0d37779eaf964b9459d0744ecdbe801db3bbdacdf711249f0c",
         "digest": "sha256:5c3be99bdb9fb8b26f0e15632c7dbdec636ef2786f8b1ce41460e6a56fa7af26"
       },
       "package": null
@@ -99,7 +99,7 @@
         "path": "declarations/enchir-1.2.0.micytepkg.json",
         "schema": "micyte.gadget.declaration.v1",
         "bytes": 2591,
-        "sha256": "a2e1e9ff1940222fb5c92bd95388f7cde0b61e68878865b943ac0c63937aba2e",
+        "sha256": "821cae18b5fc6f6941747cea6ab6d0a3ed6973b5a99fbdce106ce0720b2e900c",
         "digest": "sha256:179181be9dd35b64cd77b874ac3e92f9fc1902c2085e97555018bb3fdd3f976f"
       },
       "package": null
@@ -143,7 +143,7 @@
         "path": "declarations/director-1.0.0.micytepkg.json",
         "schema": "micyte.gadget.declaration.v1",
         "bytes": 2920,
-        "sha256": "4cfdf6cbbf795fc6a523eea358f6a2677eb8c00943e0d28fa8970a330492006a",
+        "sha256": "cbbd9c6ff0ba5a61fbb8c7e8e9e3592d2941c8b88b2d750f2e9ace665ec3f3ac",
         "digest": "sha256:015c9e3a83c67feefc46e5dde6c768be9500a213e016af13344ea1e67eb83a70"
       },
       "package": null
@@ -192,7 +192,7 @@
         "path": "declarations/oveure-1.3.0.micytepkg.json",
         "schema": "micyte.gadget.declaration.v1",
         "bytes": 6135,
-        "sha256": "38978739b2cd70a22292c76a87fbf45b50a4b0c2cb6a0badf08997f38545a712",
+        "sha256": "878b8f3cb030e108b501f741f0b028e13e6d10378793612605308e1a1ff7c7e0",
         "digest": "sha256:1b0958316b89300d2192c2167af23ed55a21ee436695fb19cdb29584f488ec81"
       },
       "package": null
@@ -234,7 +234,7 @@
         "path": "declarations/almanac-1.1.0.micytepkg.json",
         "schema": "micyte.gadget.declaration.v1",
         "bytes": 2320,
-        "sha256": "4b2313a612c1a27a89d876aa8c55b8e2990b791ca99e9601366b4ea426dc2e48",
+        "sha256": "356caa1fc9fcaac98c7c4dc19552328216136b9b80bdc735b2cb76d67fbcd78f",
         "digest": "sha256:3aaf18812a345fa0ee002235edc8bd2953635f9a04b6f26f9b03d629489a55c0"
       },
       "package": null
@@ -279,7 +279,7 @@
         "path": "declarations/pim-0.4.0.micytepkg.json",
         "schema": "micyte.gadget.declaration.v1",
         "bytes": 4052,
-        "sha256": "ad47bbc99b8a48e7b55967cae54fdb3135e916405d0c54b1f41b836801f56f03",
+        "sha256": "2b46d60f43426c28645123816b57371659c3cf4b16df4b4c6ba5e7e0938d2c31",
         "digest": "sha256:9362a3e0d4c80ceadbecaafc7597749caea1c0068319536880d28118e83762c1"
       },
       "package": null
@@ -288,7 +288,7 @@
       "id": "quiar",
       "kind": "app",
       "label": "Quiar – Freelancer",
-      "version": "2.5.0",
+      "version": "2.6.0",
       "summary": "Book work, group it into projects, keep the people you book it for, and see the week. Nothing in it is trade-specific: a job's kind is a node the instance mints for itself.",
       "icon": "quiar",
       "micyte_version": "0.6.0",
@@ -340,11 +340,11 @@
         "services": []
       },
       "declaration": {
-        "path": "declarations/quiar-2.5.0.micytepkg.json",
+        "path": "declarations/quiar-2.6.0.micytepkg.json",
         "schema": "micyte.gadget.declaration.v1",
-        "bytes": 4996,
-        "sha256": "ca1dec38fd4bcd3089e00485b52a43eac76e04c830da494b69c9e648419be61c",
-        "digest": "sha256:969cf313c24ab816cbf657d272c5c710840d7db92694d086126599cddae93ef2"
+        "bytes": 5124,
+        "sha256": "e1634e1f601169fefafa0ce3249f7f639bbb4db7dd9cbafa80e66df13a69f381",
+        "digest": "sha256:6e43b9ce5de64319c82bd15e279426a5534c4950b24a212a29aa48c453812f6f"
       },
       "package": null
     },
@@ -382,7 +382,7 @@
         "path": "declarations/claude-1.0.0.micytepkg.json",
         "schema": "micyte.gadget.declaration.v1",
         "bytes": 2377,
-        "sha256": "f60dd0fb1b8ace7cb22b6b7afd7f773e6b3fdf83487248ac7e627f7dc868a215",
+        "sha256": "d9e464bc3145d245dff2070a2d6b886c00ed25053967b3cdb6bc8a667ad0ca69",
         "digest": "sha256:ae5b2a30cc01a822305592fcc62fb973c24d46a52b3e2c3a35f44011e8db0e84"
       },
       "package": null
@@ -422,7 +422,7 @@
         "path": "declarations/fnd_service-1.8.0.micytepkg.json",
         "schema": "micyte.gadget.declaration.v1",
         "bytes": 9618,
-        "sha256": "f74aa381492db12c5fec8ff9337d5c95b31461c39cf08f9ac6c6fb9d6bc9eb83",
+        "sha256": "670a30f8873344002d50995de3ce870e650cad5b11af84f086555ca75c664048",
         "digest": "sha256:f16a2909d85d26c07d553d4d5c43d2ef58e33baa3db4ee41f0468e1be3a85450"
       },
       "package": null
@@ -461,7 +461,7 @@
         "path": "declarations/published_catalogue-1.0.0.micytepkg.json",
         "schema": "micyte.gadget.declaration.v1",
         "bytes": 2598,
-        "sha256": "c614f64bd5a5df21abf7906934b399976485710ca7d4352da1f334104ce9de72",
+        "sha256": "6866d412543ec33464efa0b1d2cb80ffaa929c12f0a9c4e539404a27d87f4237",
         "digest": "sha256:e489cd674bfbf1ec3d220a5c01d3b89f988a5e95e64bdd564f135088c12d9478"
       },
       "package": null
