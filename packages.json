@@ -1,7 +1,7 @@
 {
   "schema": "micyte.packages.manifest.v1",
   "publisher": "micyte.com",
-  "build": "gadgets-d5743c3153e0ad07",
+  "build": "gadgets-8d40c5553a065cfa",
   "micyte_version": "0.6.0",
   "packages": [
     {
@@ -712,7 +712,7 @@
     },
     {
       "package_id": "quiar",
-      "version": "2.5.0",
+      "version": "2.6.0",
       "label": "Quiar – Freelancer",
       "summary": "Book work, group it into projects, keep the people you book it for, and see the week. Nothing in it is trade-specific: a job's kind is a node the instance mints for itself.",
       "source": "local",
@@ -801,6 +801,11 @@
           "document_kind": "contact",
           "action": "save_contact",
           "sandbox_id": ""
+        },
+        {
+          "document_kind": "contact",
+          "action": "request_contact_verification",
+          "sandbox_id": ""
         }
       ],
       "icon": "quiar",
@@ -826,7 +831,7 @@
       "port_fills": [],
       "publishable": true,
       "descends_from": "",
-      "digest": "sha256:969cf313c24ab816cbf657d272c5c710840d7db92694d086126599cddae93ef2"
+      "digest": "sha256:6e43b9ce5de64319c82bd15e279426a5534c4950b24a212a29aa48c453812f6f"
     }
   ]
 }
