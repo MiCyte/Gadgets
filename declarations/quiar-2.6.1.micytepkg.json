@@ -4,11 +4,11 @@
   "how_to_verify": "`digest` is sha256 over this declaration canonically serialized, excluding version, label, summary, icon and publishable \u2014 the same value micyte.tools._packages_manifest.declaration_digest computes, which is what an instance compares when it pulls the same declaration over GET /__mss/public/packages. A declaration whose digest does not match the one your instance computes is not the declaration this build published.",
   "publisher": "micyte.com",
   "micyte_version": "0.6.0",
-  "generated_at": "2026-10-28T22:49:25Z",
-  "digest": "sha256:6e43b9ce5de64319c82bd15e279426a5534c4950b24a212a29aa48c453812f6f",
+  "generated_at": "2026-10-30T14:21:55Z",
+  "digest": "sha256:ca07ad3e9bdc090f126744d9bda85d520780c89a46c06cb0903d63b9f28b4ff0",
   "package": {
     "package_id": "quiar",
-    "version": "2.6.0",
+    "version": "2.6.1",
     "label": "Quiar \u2013 Freelancer",
     "summary": "Book work, group it into projects, keep the people you book it for, and see the week. Nothing in it is trade-specific: a job's kind is a node the instance mints for itself.",
     "source": "local",
@@ -39,7 +39,7 @@
           "name": "contacts",
           "archetype": "natural_entity_profile",
           "why": "the people it books work for",
-          "archetype_hash": "71ccdc41aa3a22dd7d5b73e9d9ffa49368521a074dfe17c9896eb48bfe22245d"
+          "archetype_hash": "1bba67e19ad07bf58832d6201ba91af311fd53c66a3d36d0a2d6cab23ae004e9"
         },
         {
           "name": "lcl_domain",
@@ -127,6 +127,6 @@
     "port_fills": [],
     "publishable": true,
     "descends_from": "",
-    "digest": "sha256:6e43b9ce5de64319c82bd15e279426a5534c4950b24a212a29aa48c453812f6f"
+    "digest": "sha256:ca07ad3e9bdc090f126744d9bda85d520780c89a46c06cb0903d63b9f28b4ff0"
   }
 }
