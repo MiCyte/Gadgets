@@ -243,8 +243,8 @@
       "id": "pim",
       "kind": "app",
       "label": "PIM",
-      "version": "0.4.0",
-      "summary": "The client's own record of their provider-service relationship, held as datum documents in an isolated sandbox and fed through the ports their own service key permits. Home says what the client pays and what their site and records occupy against the plan; Authoring and Design are their site and the writing published to it; Analytics, Email, Resources, Payment and Domain each light when the seam that feeds them is bound and say why when it is not.",
+      "version": "0.5.0",
+      "summary": "The client's own record of their provider-service relationship, held as datum documents in an isolated sandbox and fed through the ports their own service key permits. Home says what the client pays and what their site and records occupy against the plan; Authoring and Design are their site and the writing published to it; Analytics, Email, Resources, Payment and Domain each light when the seam that feeds them is bound and say why when it is not; Donations is the book of gifts given through their own site, drawn when the instance keeps one.",
       "icon": "pim",
       "micyte_version": "0.6.0",
       "tools": [
@@ -259,10 +259,12 @@
           "namespace": ""
         },
         "documents": [
-          "contacts"
+          "contacts",
+          "donations"
         ],
         "archetypes": [
-          "natural_entity_profile"
+          "natural_entity_profile",
+          "invoice"
         ],
         "sources": [],
         "fields": []
@@ -276,11 +278,11 @@
         "services": []
       },
       "declaration": {
-        "path": "declarations/pim-0.4.0.micytepkg.json",
+        "path": "declarations/pim-0.5.0.micytepkg.json",
         "schema": "micyte.gadget.declaration.v1",
-        "bytes": 4052,
-        "sha256": "b0a8c3947a85da776e3842b64a38f178c10c3431781209627b12b864d765bef9",
-        "digest": "sha256:9362a3e0d4c80ceadbecaafc7597749caea1c0068319536880d28118e83762c1"
+        "bytes": 4582,
+        "sha256": "004e0a2782045826025149c1332f6302c6c13f02d7a428c5c6f2942d0f48cb21",
+        "digest": "sha256:51b76e6a340101076a293bad6e180d5693664593d9f4383d56ad9c8fb678b2b2"
       },
       "package": null
     },
