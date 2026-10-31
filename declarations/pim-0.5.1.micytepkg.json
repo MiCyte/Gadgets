@@ -4,11 +4,11 @@
   "how_to_verify": "`digest` is sha256 over this declaration canonically serialized, excluding version, label, summary, icon and publishable \u2014 the same value micyte.tools._packages_manifest.declaration_digest computes, which is what an instance compares when it pulls the same declaration over GET /__mss/public/packages. A declaration whose digest does not match the one your instance computes is not the declaration this build published.",
   "publisher": "micyte.com",
   "micyte_version": "0.6.0",
-  "generated_at": "2026-10-31T15:53:20Z",
-  "digest": "sha256:51b76e6a340101076a293bad6e180d5693664593d9f4383d56ad9c8fb678b2b2",
+  "generated_at": "2026-10-31T15:59:41Z",
+  "digest": "sha256:70b37b6ccc9efd91e4202cb466c54268a918fa0379b0216a2ad61dad5b6fa765",
   "package": {
     "package_id": "pim",
-    "version": "0.5.0",
+    "version": "0.5.1",
     "label": "PIM",
     "summary": "The client's own record of their provider-service relationship, held as datum documents in an isolated sandbox and fed through the ports their own service key permits. Home says what the client pays and what their site and records occupy against the plan; Authoring and Design are their site and the writing published to it; Analytics, Email, Resources, Payment and Domain each light when the seam that feeds them is bound and say why when it is not; Donations is the book of gifts given through their own site, drawn when the instance keeps one.",
     "source": "local",
@@ -23,13 +23,7 @@
       "fields": [],
       "archetypes": []
     },
-    "writes": [
-      {
-        "document_kind": "donation",
-        "action": "add_donation",
-        "sandbox_id": ""
-      }
-    ],
+    "writes": [],
     "icon": "pim",
     "hub_tool": "pim_overview",
     "app_sandbox": {
@@ -87,6 +81,6 @@
     "port_fills": [],
     "publishable": true,
     "descends_from": "",
-    "digest": "sha256:51b76e6a340101076a293bad6e180d5693664593d9f4383d56ad9c8fb678b2b2"
+    "digest": "sha256:70b37b6ccc9efd91e4202cb466c54268a918fa0379b0216a2ad61dad5b6fa765"
   }
 }
