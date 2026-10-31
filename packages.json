@@ -1,7 +1,7 @@
 {
   "schema": "micyte.packages.manifest.v1",
   "publisher": "micyte.com",
-  "build": "gadgets-c83b9066df83862d",
+  "build": "gadgets-916c91a508bcee1c",
   "micyte_version": "0.6.0",
   "packages": [
     {
@@ -603,9 +603,9 @@
     },
     {
       "package_id": "pim",
-      "version": "0.4.0",
+      "version": "0.5.0",
       "label": "PIM",
-      "summary": "The client's own record of their provider-service relationship, held as datum documents in an isolated sandbox and fed through the ports their own service key permits. Home says what the client pays and what their site and records occupy against the plan; Authoring and Design are their site and the writing published to it; Analytics, Email, Resources, Payment and Domain each light when the seam that feeds them is bound and say why when it is not.",
+      "summary": "The client's own record of their provider-service relationship, held as datum documents in an isolated sandbox and fed through the ports their own service key permits. Home says what the client pays and what their site and records occupy against the plan; Authoring and Design are their site and the writing published to it; Analytics, Email, Resources, Payment and Domain each light when the seam that feeds them is bound and say why when it is not; Donations is the book of gifts given through their own site, drawn when the instance keeps one.",
       "source": "local",
       "tools": [
         "pim_overview",
@@ -618,7 +618,13 @@
         "fields": [],
         "archetypes": []
       },
-      "writes": [],
+      "writes": [
+        {
+          "document_kind": "donation",
+          "action": "add_donation",
+          "sandbox_id": ""
+        }
+      ],
       "icon": "pim",
       "hub_tool": "pim_overview",
       "app_sandbox": {
@@ -629,6 +635,12 @@
             "name": "contacts",
             "archetype": "natural_entity_profile",
             "why": "people who signed up on the client's website — the client's own record of them, in their own sandbox. NOT quiar's CRM contacts: same archetype, different record",
+            "archetype_hash": ""
+          },
+          {
+            "name": "donations",
+            "archetype": "invoice",
+            "why": "gifts given to this instance through its own website — invoice-SHAPED, because a gift is the same cells as a sale and a different direction, and the DOCUMENT is the direction",
             "archetype_hash": ""
           }
         ]
@@ -670,7 +682,7 @@
       "port_fills": [],
       "publishable": true,
       "descends_from": "",
-      "digest": "sha256:9362a3e0d4c80ceadbecaafc7597749caea1c0068319536880d28118e83762c1"
+      "digest": "sha256:51b76e6a340101076a293bad6e180d5693664593d9f4383d56ad9c8fb678b2b2"
     },
     {
       "package_id": "published_catalogue",
