@@ -243,7 +243,7 @@
       "id": "pim",
       "kind": "app",
       "label": "PIM",
-      "version": "0.5.0",
+      "version": "0.5.1",
       "summary": "The client's own record of their provider-service relationship, held as datum documents in an isolated sandbox and fed through the ports their own service key permits. Home says what the client pays and what their site and records occupy against the plan; Authoring and Design are their site and the writing published to it; Analytics, Email, Resources, Payment and Domain each light when the seam that feeds them is bound and say why when it is not; Donations is the book of gifts given through their own site, drawn when the instance keeps one.",
       "icon": "pim",
       "micyte_version": "0.6.0",
@@ -278,11 +278,11 @@
         "services": []
       },
       "declaration": {
-        "path": "declarations/pim-0.5.0.micytepkg.json",
+        "path": "declarations/pim-0.5.1.micytepkg.json",
         "schema": "micyte.gadget.declaration.v1",
-        "bytes": 4582,
-        "sha256": "004e0a2782045826025149c1332f6302c6c13f02d7a428c5c6f2942d0f48cb21",
-        "digest": "sha256:51b76e6a340101076a293bad6e180d5693664593d9f4383d56ad9c8fb678b2b2"
+        "bytes": 4465,
+        "sha256": "43d5900b4f08e0c4b18d91a987bb2241cba3c228594b2c9a9a967bf32e9ab830",
+        "digest": "sha256:70b37b6ccc9efd91e4202cb466c54268a918fa0379b0216a2ad61dad5b6fa765"
       },
       "package": null
     },
