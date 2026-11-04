@@ -1,0 +1,39 @@
+name: DCO
+
+# Every commit in a pull request carries the author's sign-off (`git commit -s`):
+# "Signed-off-by: <author name> <author email>", the Developer Certificate of Origin
+# (https://developercertificate.org). Merge commits are skipped. No third-party action
+# runs here: the commits are read with the workflow's own read-only token.
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+permissions:
+  contents: read
+  pull-requests: read
+
+jobs:
+  DCO:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Every commit is signed off by its author
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+          PR: ${{ github.event.pull_request.number }}
+        run: |
+          set -euo pipefail
+          bad=0
+          while IFS=$'\t' read -r sha parents name email message; do
+            if [ "$parents" -gt 1 ]; then continue; fi
+            want="Signed-off-by: $name <$email>"
+            if printf '%s' "$message" | base64 -d | sed 's/[[:space:]]*$//' | grep -Fqix -- "$want"; then
+              echo "ok   ${sha:0:12}"
+            else
+              echo "::error::${sha:0:12} has no line '$want'. Sign it off with: git commit -s --amend (or git rebase --signoff)"
+              bad=1
+            fi
+          done < <(gh api "repos/$REPO/pulls/$PR/commits" --paginate \
+            --jq '.[] | [.sha, (.parents | length), .commit.author.name, .commit.author.email, (.commit.message | @base64)] | @tsv')
+          exit "$bad"
