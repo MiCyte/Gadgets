@@ -60,7 +60,7 @@
         "path": "declarations/brevat-1.3.0.micytepkg.json",
         "schema": "micyte.gadget.declaration.v1",
         "bytes": 5037,
-        "sha256": "9bcceba2706b359f60122b7caa341a3b241e343d5c3a6d9d4f1b6311da47178c",
+        "sha256": "8200e429b100238f9ad4b4710c3ce3971c041956b0c5d3d9c49dd0c57e6ff2a1",
         "digest": "sha256:5c3be99bdb9fb8b26f0e15632c7dbdec636ef2786f8b1ce41460e6a56fa7af26"
       },
       "package": null
@@ -99,7 +99,7 @@
         "path": "declarations/enchir-1.2.0.micytepkg.json",
         "schema": "micyte.gadget.declaration.v1",
         "bytes": 2591,
-        "sha256": "b4a7f0aae1bbbb5b109153019b48103e0ed8fd7eb2ea665b15ca5a69bcca6c35",
+        "sha256": "cafcd719c4c23ee705f41b93497090f2fb2c916023fbe2d976b29b4a0689d4ab",
         "digest": "sha256:179181be9dd35b64cd77b874ac3e92f9fc1902c2085e97555018bb3fdd3f976f"
       },
       "package": null
@@ -108,7 +108,7 @@
       "id": "director",
       "kind": "app",
       "label": "Director",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "summary": "The instances this host established, each one's profile in the registry, a way to establish another, and the entity table. For an instance that hosts others; it holds the registrar's legal-entity document.",
       "icon": "director",
       "micyte_version": "0.6.0",
@@ -140,11 +140,11 @@
         "services": []
       },
       "declaration": {
-        "path": "declarations/director-1.0.0.micytepkg.json",
+        "path": "declarations/director-1.0.1.micytepkg.json",
         "schema": "micyte.gadget.declaration.v1",
         "bytes": 2920,
-        "sha256": "ae8b2dc27c482c26fc6050f6a6d72a1d39ad27d5010a8fb8085c2b9777bf1115",
-        "digest": "sha256:015c9e3a83c67feefc46e5dde6c768be9500a213e016af13344ea1e67eb83a70"
+        "sha256": "b52ca535b615c4f123aa933730d847cf1df801f4ffdd0ff716fc663eaab3e652",
+        "digest": "sha256:512e4f373f0843d53ab4c7a72ed64c9214e8556bd02c8ff29503389bf420fbb3"
       },
       "package": null
     },
@@ -192,7 +192,7 @@
         "path": "declarations/oveure-1.3.0.micytepkg.json",
         "schema": "micyte.gadget.declaration.v1",
         "bytes": 6135,
-        "sha256": "74763cabdd966f66456e068b08e14c9cccc1fbc82e8102d5420561778621a6eb",
+        "sha256": "e936e2884f5382fb29c0111458fa3d51805e18fee75c1278e4c208220adc204a",
         "digest": "sha256:1b0958316b89300d2192c2167af23ed55a21ee436695fb19cdb29584f488ec81"
       },
       "package": null
@@ -234,7 +234,7 @@
         "path": "declarations/almanac-1.1.0.micytepkg.json",
         "schema": "micyte.gadget.declaration.v1",
         "bytes": 2320,
-        "sha256": "0260d22097228a2814c9e91322f629204e998cc487a5888466f687308e92ce7a",
+        "sha256": "75951fc0128c75fd559fb835331fb060124d3953395e7e2a0e6c95d768ece840",
         "digest": "sha256:3aaf18812a345fa0ee002235edc8bd2953635f9a04b6f26f9b03d629489a55c0"
       },
       "package": null
@@ -281,7 +281,7 @@
         "path": "declarations/pim-0.5.1.micytepkg.json",
         "schema": "micyte.gadget.declaration.v1",
         "bytes": 4465,
-        "sha256": "43d5900b4f08e0c4b18d91a987bb2241cba3c228594b2c9a9a967bf32e9ab830",
+        "sha256": "9a1d96e12d49ea5879bc714238dc499b477b30cc0ec0eef22bf85175161f2f1f",
         "digest": "sha256:70b37b6ccc9efd91e4202cb466c54268a918fa0379b0216a2ad61dad5b6fa765"
       },
       "package": null
@@ -345,7 +345,7 @@
         "path": "declarations/quiar-2.6.1.micytepkg.json",
         "schema": "micyte.gadget.declaration.v1",
         "bytes": 5124,
-        "sha256": "d701fc7f8aff989dc4aa2f6e45cfff666bdfdcac29694c60259dbd56c45d1d2a",
+        "sha256": "351af2ee90eb83ed92f9839ecccaeb92fb601e15fdecde3456172d084c155a83",
         "digest": "sha256:ca07ad3e9bdc090f126744d9bda85d520780c89a46c06cb0903d63b9f28b4ff0"
       },
       "package": null
@@ -384,7 +384,7 @@
         "path": "declarations/claude-1.0.0.micytepkg.json",
         "schema": "micyte.gadget.declaration.v1",
         "bytes": 2377,
-        "sha256": "0e12743a3661184e9a5a31c4d0ecfbdec6a99b1e83f27f97c07481b72e24d0d2",
+        "sha256": "88fa18d3d2f054642e6caaf07d093994c13b0cedf7c34da84e186bd0a99b49f2",
         "digest": "sha256:ae5b2a30cc01a822305592fcc62fb973c24d46a52b3e2c3a35f44011e8db0e84"
       },
       "package": null
@@ -424,7 +424,7 @@
         "path": "declarations/fnd_service-1.8.0.micytepkg.json",
         "schema": "micyte.gadget.declaration.v1",
         "bytes": 9618,
-        "sha256": "1052a80489126f4322ccfeea32806796414df51be7ee919068b4d0e61af23575",
+        "sha256": "d34451b78a3667878ec9b1feae1c230733a5fdca562d907dd1ce6fc9f1396634",
         "digest": "sha256:f16a2909d85d26c07d553d4d5c43d2ef58e33baa3db4ee41f0468e1be3a85450"
       },
       "package": null
@@ -463,7 +463,7 @@
         "path": "declarations/published_catalogue-1.0.0.micytepkg.json",
         "schema": "micyte.gadget.declaration.v1",
         "bytes": 2598,
-        "sha256": "02217751fc8747d24ee5fc41c31e0d5d89907c62b39f1d6b1481888bafa00af4",
+        "sha256": "a6a62b14ccee8dd798a6845917ee498112c1150ebac566f08b0da9da2469af1a",
         "digest": "sha256:e489cd674bfbf1ec3d220a5c01d3b89f988a5e95e64bdd564f135088c12d9478"
       },
       "package": null

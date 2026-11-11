@@ -1,7 +1,7 @@
 {
   "schema": "micyte.packages.manifest.v1",
   "publisher": "micyte.com",
-  "build": "gadgets-d865758a41d0db37",
+  "build": "gadgets-99b1c8f4de1f93c8",
   "micyte_version": "0.6.0",
   "packages": [
     {
@@ -196,7 +196,7 @@
     },
     {
       "package_id": "director",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "label": "Director",
       "summary": "The instances this host established, each one's profile in the registry, a way to establish another, and the entity table. For an instance that hosts others; it holds the registrar's legal-entity document.",
       "source": "local",
@@ -213,7 +213,7 @@
             "name": "legal_entity",
             "archetype": "legal_entity_profile",
             "why": "the network directory this tool browses or edits",
-            "archetype_hash": "53ccab4bc1810aeccf71a283387b66452e710e26c4c7350ce26b9a79c65462fe"
+            "archetype_hash": "90637e97b7963dffa8f01eacd137045b1960d49019351182614876e9571943d1"
           }
         ],
         "documents_any": [],
@@ -255,7 +255,7 @@
       "port_fills": [],
       "publishable": true,
       "descends_from": "enchir",
-      "digest": "sha256:015c9e3a83c67feefc46e5dde6c768be9500a213e016af13344ea1e67eb83a70"
+      "digest": "sha256:512e4f373f0843d53ab4c7a72ed64c9214e8556bd02c8ff29503389bf420fbb3"
     },
     {
       "package_id": "enchir",
